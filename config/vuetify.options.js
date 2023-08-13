@@ -1,0 +1,39 @@
+let darkMode = false
+if (typeof Storage !== 'undefined') { // eslint-disable-line
+  darkMode = localStorage.getItem('MedFoodDarkMode') || false
+}
+
+export default {
+  rtl: false,
+  theme: {
+    dark: darkMode === 'true',
+    themes: {
+      dark: {
+        background: '#1D1F1F',
+        primary: '#62D0B6',
+        secondary: '#333333',
+        accent: '#82B1FF',
+        error: '#F55157',
+        info: '#5196F3',
+        success: '#00AF6C',
+        warning: '#FFC62A',
+        default: '#62D0B6',
+      },
+      light: {
+        background: '#1D1F1F',
+        primary: '#62D0B6',
+        secondary: '#333333',
+        accent: '#82B1FF',
+        error: '#F55157',
+        info: '#5196F3',
+        success: '#00AF6C',
+        warning: '#FFC62A',
+        default: '#62D0B6',
+      },
+
+    },
+    options: {
+      customProperties: true
+    }
+  }
+}
