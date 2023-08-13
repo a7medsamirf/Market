@@ -1,6 +1,6 @@
 <template lang="">
     <div id="CartPage">
-        
+        <h1>Cart</h1>
     </div>
 </template>
 <script>

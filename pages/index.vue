@@ -6,13 +6,18 @@
       </v-card>
    
     </v-col>
+
+    <card />
+
+
   </v-row>
 </template>
 
 <script>
-import buttonV1 from '~/components/buttons/button-V1.vue'
+import buttonV1 from '~/components/Buttons/button-V1.vue'
+import Card from '~/components/Cards/card.vue'
 export default {
-  components: { buttonV1 },
+  components: { buttonV1, Card },
   name: 'IndexPage'
 }
 </script>

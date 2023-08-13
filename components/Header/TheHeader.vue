@@ -1,10 +1,11 @@
 <template>
     <div>
 <!---------- Start TopHeader ---------->
-        <top-header />
+        <TopHeader />
 
       <!---------- Start Navigation Drawer ---------->
-      <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  fixed :right="$vuetify.rtl">
+      <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  :right="$vuetify.rtl">
+
         <v-list-item class="pa-3">
           <div class="logo">
             <NuxtLink :to="localePath('/')" >
@@ -23,17 +24,12 @@
       <!---------- End Navigation Drawer ---------->
   
       <!---------- Start App Bar ---------->
-      <v-app-bar app height="85px" fixed  elevation="0">
+      <v-app-bar dark height="50px"  elevation="0">
         <v-container class="pa-0 fill-height">
        <v-app-bar-nav-icon
             class="hidden-md-and-up"
             @click.stop="drawer = !drawer" /> 
-            <div class="logo">
-          <NuxtLink :to="localePath('/')" >
-            <v-img v-if="!$vuetify.theme.dark" max-height="60" max-width="170" :src="require('static/images/logo/dark-logo.png')" ></v-img>
-            <v-img v-else max-height="60" max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
-          </NuxtLink>
-        </div>
+       
           <v-spacer />
           <v-toolbar-items
             class="hidden-md-and-down DesktopNav"
@@ -83,7 +79,7 @@
           </div> -->
      
           <Settings />
-          <ThemeSwitcher />
+      
 
   
         </v-container>
@@ -95,18 +91,16 @@
   
   <script>
 import Settings from './Settings.vue';
-import ThemeSwitcher from './ThemeSwitcher.vue';
 import TopHeader from './TopHeader.vue';
 
   export default {
-    components: {Settings, ThemeSwitcher, TopHeader},
+    components: {Settings, TopHeader},
     name: "TheHeader",
     data () {
       return {
         drawer: false,
         right: true,
         rightDrawer: false,
-        fixed: false,
         Lang : '',
         items: [
           {title: 'home', to: '/'},
@@ -138,14 +132,14 @@ import TopHeader from './TopHeader.vue';
   
   }
   header.v-toolbar a.v-btn--active {
-    color: #0B0D39 !important;
+    color: #62d0b6 !important;
   }
   header.v-toolbar a.v-btn--active:after {
     content: "";
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #3063e9;
+    background: #62d0b6;
     position: absolute;
     bottom: 15px;
   }
@@ -156,5 +150,7 @@ import TopHeader from './TopHeader.vue';
       }
     }
   }
-  
+  .v-app-bar--is-scrolled{
+    margin-top: 0 !important ;
+  }
   </style>
