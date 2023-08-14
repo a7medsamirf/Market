@@ -66,6 +66,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ["vue-toastification/nuxt", {
+      timeout: 1000,
+      draggable: false
+    }],
+    "vue-sweetalert2/nuxt/no-css",
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
