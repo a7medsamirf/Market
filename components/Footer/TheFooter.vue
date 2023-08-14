@@ -5,11 +5,9 @@
       <div class="pt-20">
         <v-container>
           <v-row>
-            <v-col cols="12" lg="5" md="6" sm="12">
+            <v-col cols="12" lg="3" md="6" sm="12">
               <button class="title-btn rounded-xl elevation-0">  {{ $t('contactus') }}</button>
-              <v-list-item-title v-if="!$vuetify.rtl" class="use-text-title2 mt-3"> Hello@Startup.com   <i class="fa-duotone fa-arrow-up-right"></i></v-list-item-title>
-              <v-list-item-title v-else class="text-color-default use-text-title2 mt-3"> Hello@Startup.com   <i class="fa-duotone fa-arrow-up-left"></i></v-list-item-title>
-
+              <p class="use-text-paragraph text-color-default mt-3">متجر سلة من افضل المتاجر التى تقوم ببيع المنتجات الرقمية بأفضل الاسعار وماركات عالمية تسوق الان واطلع على المزيد من التصاميم واستمتع بأفضل العروض والخصومات</p>
 
             </v-col>
             <v-col cols="12" lg="6" md="6" sm="12">

@@ -1,5 +1,6 @@
 {
   "common": {
+    "Dark-Mode": "Dark Mode",
     "discuss": "Let's discuss",
     "Learn-more": "Learn More",
     "reviewtitle1": "Super Helpful !!!!",
@@ -17,7 +18,8 @@
   "solutions": "Solutions",
   "Services": "Services",
   "about-Us": "about-Us",
-  "Feedback": "Feedback",
+  "Blog": "Blog",
+  "Shop": "Shop",
   "contactus": "اتصل بنا",
   "Social-Media": "تابعنا على ",
   "QuickLinks": "روابط سريعة",

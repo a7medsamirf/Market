@@ -2,8 +2,8 @@ const appUrl = 'https://nuxt-i18n-demo.netlify.app';
 import { theme } from './config/vuetify.options'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  ssr: false,
-  target: 'static', 
+/*   ssr: false,
+  target: 'static',  */
   head: {
     titleTemplate: '%s - Nuxt2',
     title: 'Nuxt2',
@@ -35,6 +35,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "@sweetalert2/theme-material-ui",
     '~/assets/vuetify-overrides.scss',
     '~/assets/vendors/slick-carousel/slick-theme.css',
     '~/assets/vendors/slick-carousel/slick.css',
@@ -43,6 +44,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {src: '~/plugins/cart.js', ssr: false},
+    {src: '~/plugins/toast-notification', ssr: false},
     {src: '~/plugins/i18n-config.js' },
     {src: '~/plugins/fontawesome.js', ssr: false},
     {src: '~/plugins/wow.js', ssr: false},
@@ -147,7 +150,14 @@ export default {
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css'
+      }
+    },
+    nestedProperties: ['author.name']
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

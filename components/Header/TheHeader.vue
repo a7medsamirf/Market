@@ -1,5 +1,29 @@
 <template>
     <div>
+      <v-app-bar class=""
+      height="50px" 
+      elevation="4"
+      dense
+    >
+    <v-container class="pa-0 fill-height" >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Page title</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+      
+    </v-container>
+    </v-app-bar>
+
+
 <!---------- Start TopHeader ---------->
         <TopHeader />
 
@@ -24,7 +48,7 @@
       <!---------- End Navigation Drawer ---------->
   
       <!---------- Start App Bar ---------->
-      <v-app-bar dark height="50px"  elevation="0">
+      <v-app-bar class="mt-16" dark height="50px"  elevation="0">
         <v-container class="pa-0 fill-height">
        <v-app-bar-nav-icon
             class="hidden-md-and-up"
@@ -78,7 +102,7 @@
            <button href="#" title="تواصل معنا" class="btn outline">{{ $t('common.Learn-more') }}</button>
           </div> -->
      
-          <Settings />
+  
       
 
   
@@ -90,11 +114,10 @@
   </template>
   
   <script>
-import Settings from './Settings.vue';
 import TopHeader from './TopHeader.vue';
 
   export default {
-    components: {Settings, TopHeader},
+    components: { TopHeader},
     name: "TheHeader",
     data () {
       return {
@@ -107,7 +130,8 @@ import TopHeader from './TopHeader.vue';
           {title: 'solutions', to: ''},
           {title: 'Services', to: ''},
           {title: 'about-Us', to: ''},
-          {title: 'Feedback', to: ''},
+          {title: 'Blog', to: '/blog'},
+          {title: 'Shop', to: '/products'},
         ],
   
       }
@@ -134,7 +158,7 @@ import TopHeader from './TopHeader.vue';
   header.v-toolbar a.v-btn--active {
     color: #62d0b6 !important;
   }
-  header.v-toolbar a.v-btn--active:after {
+/*   header.v-toolbar a.v-btn--active:after {
     content: "";
     width: 8px;
     height: 8px;
@@ -142,7 +166,7 @@ import TopHeader from './TopHeader.vue';
     background: #62d0b6;
     position: absolute;
     bottom: 15px;
-  }
+  } */
   .logo{
     .v-image{
       @include breakpoints-down(md) {

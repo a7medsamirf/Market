@@ -1,6 +1,7 @@
 <template>
-    <v-app-bar>
-    <v-container class="pa-0 fill-height" elevation="0">
+
+    <v-app-bar app elevation="0" class="mt-10 ">
+    <v-container class="pa-0 fill-height" >
 
       <v-toolbar-title>
       <div class="logo">
@@ -15,13 +16,14 @@
         flat
         solo-inverted
         hide-details
-        prepend-inner-icon="mdi-magnify"
         label="ابحث عما تريد"
-        class="hidden-sm-and-down pl-10 ml-4"
+        prepend-inner-icon="mdi-magnify"
+        class="hidden-sm-and-down px-10 ml-4"
       />
       <v-spacer />
 
       <ThemeSwitcher />
+      <Settings />
       <v-btn icon>
         <v-icon>mdi-account-circle</v-icon>
         <i class="fi fi-rr-circle-user"></i>
@@ -48,16 +50,20 @@
       </v-btn>
     </v-container>
     </v-app-bar>
+
     
 </template>
 <script>
+import Settings from './Settings.vue';
 import ThemeSwitcher from './ThemeSwitcher.vue'
 export default {
-  components: { ThemeSwitcher },
-    name: "Top Header",
+  components: { ThemeSwitcher, Settings },
+    name: "TopHeader",
 }
 </script>
 
 <style scoped lang="scss">
-
+.v-app-bar--is-scrolled{
+  transition: all 0.5s ease-in-out;
+}
 </style>
