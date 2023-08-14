@@ -27,7 +27,7 @@
                     active-class="no-active"
                   >
                     <v-list-item-content>
-                      <v-list-item-title v-text="Service.text"></v-list-item-title>
+                      <v-list-item-title :inner-text.prop="Service.text"></v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>
@@ -45,7 +45,7 @@
                     active-class="no-active"
                   >
                     <v-list-item-content>
-                      <v-list-item-title v-text="item.text"></v-list-item-title>
+                      <v-list-item-title :inner-text.prop="item.text"></v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>
@@ -60,7 +60,7 @@
                     :key="i"
                   >
                     <v-list-item-content>
-                      <v-list-item-title v-text="Contact.text"></v-list-item-title>
+                      <v-list-item-title :inner-text.prop="Contact.text"></v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>

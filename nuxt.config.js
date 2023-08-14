@@ -38,7 +38,6 @@ export default {
     '~/assets/vuetify-overrides.scss',
     '~/assets/vendors/slick-carousel/slick-theme.css',
     '~/assets/vendors/slick-carousel/slick.css',
-    '~/assets/vendors/webfonts/uicons-regular-rounded.css',
     '~/assets/vendors/animate.css',
   ],
 
@@ -46,6 +45,7 @@ export default {
   plugins: [
     {src: '~/plugins/i18n-config.js' },
     {src: '~/plugins/fontawesome.js', ssr: false},
+    {src: '~/plugins/wow.js', ssr: false},
   ],
 
   serverMiddleware: [

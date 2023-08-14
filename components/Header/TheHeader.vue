@@ -67,7 +67,7 @@
                   active-class="primary--text"
                   exact
                 >
-                  <v-list-item-title v-text="$t(subitem.title)" />
+                  <v-list-item-title :inner-text.prop="$t(subitem.title)" />
                 </v-list-item>
               </v-list>
             </v-menu>

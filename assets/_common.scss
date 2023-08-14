@@ -190,3 +190,26 @@
 .custom-bg-color{
       background: $custom-bg-color;
 }
+
+/* Arrows */
+.slick-prev{
+  @include right(70px);
+  @include breakpoints-down(md) {
+   top: -150px !important;
+   @include right(85px);
+}
+}
+
+.slick-next {
+  @include right(0px);
+  @include breakpoints-down(md) {
+   top: -150px !important;
+   @include right(45px);
+}
+}
+@include breakpoints-down(md) {
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 12px !important;
+  }
+}

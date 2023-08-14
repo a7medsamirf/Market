@@ -9,6 +9,7 @@ export default {
     dark: darkMode === 'true',
     themes: {
       dark: {
+        Gray400: '#666',
         background: '#1D1F1F',
         primary: '#62D0B6',
         secondary: '#333333',
@@ -20,6 +21,7 @@ export default {
         default: '#62D0B6',
       },
       light: {
+        Gray400: '#666',
         background: '#1D1F1F',
         primary: '#62D0B6',
         secondary: '#333333',

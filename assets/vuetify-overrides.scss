@@ -43,6 +43,9 @@ Style Index
   --bg-color: linear-gradient(135deg,#d90a2c 0,#ed0d50 50%,#d9230a 100%);
 
 }
+body{
+  text-transform: capitalize;
+}
 
 .v-application--is-ltr {
   font-family: $en-body-font-family;
