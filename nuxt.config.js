@@ -39,7 +39,8 @@ export default {
     '~/assets/vuetify-overrides.scss',
     '~/assets/vendors/slick-carousel/slick-theme.css',
     '~/assets/vendors/slick-carousel/slick.css',
-    '~/assets/vendors/animate.css',
+    '~/assets/vendors/slick-carousel/slick.css',
+    '~/assets/vendors/materialdesignicons.min.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

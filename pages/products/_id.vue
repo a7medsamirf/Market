@@ -167,11 +167,7 @@ export default {
     color: #fff;
   }
 }
-.theme--dark.v-tabs-items,
-.theme--dark.v-tabs > .v-tabs-bar
-{
-  background-color: #001e26;
-}
+
 .v-tab.v-tab--active {
   background: #ff8e28 !important;
   color: #fff !important;

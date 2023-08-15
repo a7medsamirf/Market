@@ -1,14 +1,19 @@
 <template>
   <article class="slug-wrap">
     <div class="breadcrumb">
-      <div class="col-full">
-        <h1 class="breadcrumb-heading"> {{ article.title }}</h1>
-        <nav class="woocommerce-breadcrumb">
-          <nuxt-link to="/">Home</nuxt-link>
-          <nuxt-link to="/blog">/ Blog</nuxt-link>
-          <span class="breadcrumb-separator"> / {{ article.title }} </span>
-        </nav>
-      </div>
+      <v-container>
+        <div class="col-full">
+          <h2 class="use-text-title2 white--text mb-3"> {{ blog.title }}</h2>
+          <nav class="woocommerce-breadcrumb ">
+            <nuxt-link :to="localePath('/')">{{ $t('nav.Home') }}</nuxt-link>
+            <span class="breadcrumb-separator white--text"> / {{ blog.title }} </span>
+          </nav>
+        </div>
+      </v-container>
+      <div class="breadcrumb-bg"></div>
+      <div class="location Site-1"></div>
+      <div class="location Site-2 "></div>
+
     </div>
     <div class="inner d-flex align-center justify-center py-16">
     <v-container>
@@ -18,21 +23,38 @@
           <v-img
             height="400"
             alt=""
-            :src="require(`~/static/images/blog/${article.img}`)"
+            :src="require(`~/static/images/blog/${blog.img}`)"
           ></v-img>
-          <p class="mr-3">
-            {{ formatDate(article.updatedAt) }}
-          </p>
+            <div class="blog-title pa-5">
+              <h2 class="use-text-title2 text-color-default text-xs-center">{{ blog.title }}</h2>
+
+              <v-chip-group
+                active-class="deep-purple accent-4 white--text"
+                column
+              >
+                <author :author="blog.author" />
+
+                <v-chip>  <span><v-icon small color="primary" class="fi fi-rr-calendar mr-3"></v-icon></span>
+                  {{ formatDate(blog.updatedAt) }}</v-chip>
+              </v-chip-group>
+
+              <v-divider></v-divider>
+            </div>
+
+
      <!-- content from markdown -->
-      <nuxt-content :document="article" />
-      <!-- content author component -->
-      <author :author="article.author"/>
+
+      <nuxt-content :document="blog" />
+            <!-- content author component -->
+
+
+
+            <!-- prevNext component -->
+
+
+            <blog-comment />
 
       <!-- prevNext component -->
-      <PrevNext :prev="prev" :next="next" class="mt-8"/>
-
-
-      <blog-comment />
           </div>
         </v-col>
         <v-col cols="12" md="4">
@@ -81,8 +103,8 @@
           </div>
 
         </v-col>
-      </v-row>
 
+      </v-row>
     </v-container>
     </div>
   </article>
@@ -95,25 +117,22 @@ import Author from "~/components/blog/Author";
 import AppSearchInput from '~/components/widget/AppSearchInput.vue';
 export default {
   components: {Author, PrevNext, BlogComment, AppSearchInput},
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch()
-
+  async asyncData({ $content, params, app, error, route, redirect }) {
+    const slug = params.slug;
+    const blog = await $content(`${app.i18n.locale}/blog`, slug)
+    .fetch()
+    .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
     const tagsList = await $content('tags')
       .only(['name', 'slug'])
-      .where({ name: { $containsAny: article.tags } })
+      .where({ name: { $containsAny: blog.tags } })
       .fetch()
     const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
 
-    const [prev, next] = await $content('articles')
-      .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .surround(params.slug)
-      .fetch()
    return {
-      article,
-      tags,
-      prev,
-      next
+     blog,
+     tags,
     }
   },
     methods: {
@@ -124,12 +143,7 @@ export default {
   },
   head() {
     return {
-      title: this.article.title,
-      link: [
-        {
-          href: `${this.$config.baseUrl}/blog/${this.$route.params.slug}`,
-        },
-      ],
+      title: this.blog.title,
     };
   },
 }
@@ -144,6 +158,7 @@ export default {
   }
 
 }
+
 
 
 </style>

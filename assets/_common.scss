@@ -21,6 +21,10 @@
   color: $palette-common-white !important;
 }
 
+.v-application a {
+  cursor: pointer;
+  text-decoration: none;
+}
 
 /*========== theme Text ==========*/
 .use-text {
