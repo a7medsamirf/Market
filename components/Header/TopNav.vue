@@ -140,7 +140,7 @@ import Settings from './Settings.vue';
 import ThemeSwitcher from './ThemeSwitcher.vue'
 export default {
   components: { ThemeSwitcher, Settings },
-    name: "TopHeader",
+    name: "TopNav",
     data () {
     return {
       drawer: false,

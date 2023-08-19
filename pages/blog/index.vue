@@ -86,9 +86,30 @@
           <v-col cols="12" md="4">
             <div class="sidebar-wrap mx-3">
                 <app-search-input />
+                <div class="sidebar-widget mb-5">
+              <div class="widget-tittle ma-2">
+                <h2>Categories</h2>
+                <span></span>
+              </div>
+              <v-chip
+                class="ma-2 white--text"
+                color="primary"
+                label
+                v-for="tag of tags"
+                :key="tag.slug"
+              >
+                <NuxtLink :to="`/blog/tag/${tag.slug}`" class="white--text">
+                  <v-icon left text-color="white">
+                    mdi-label
+                  </v-icon>
+                  {{ tag.name }}
+                </NuxtLink>
+              </v-chip>
 
+            </div>
 
               <div class="sidebar-widget mb-5 ">
+
                 <div class="widget-tittle ma-2">
                   <h2>Follow Us</h2>
                   <span></span>
@@ -127,21 +148,21 @@ export default {
          /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
       /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
       .sortBy('createdAt', 'desc')
-      .limit(5)
       .fetch()
       /*.limit(5)*/ // استدعاء اخر 5 مقالات
       .catch(() => {
         error({ statusCode: 404, message: 'Page not found' })
       })
-    /*   const tags = await $content('tags')
-      .only(['name', 'description', 'img', 'slug'])
-       */
+       const tags = await $content('tags')
+       .only(['name', 'slug'])
+       .fetch()
+
     return {
       blogs: blogs.map(blog => ({
         ...blog,
         path: blog.path.replace(`/${defaultLocale}`, ''),
       })),
-     /*  tags, */
+      tags, 
       data_loaded : true,
       PageTitle: 'Our Blog',
     }

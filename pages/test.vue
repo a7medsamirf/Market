@@ -25,7 +25,8 @@
   
   
   <!---------- Start TopHeader ---------->
-        <TopHeader />
+<!--       <TopNav /> -->
+    
   
       <!---------- Start Navigation Drawer ---------->
       <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  :right="$vuetify.rtl">
@@ -106,10 +107,10 @@
   </template>
   
   <script>
-  import TopHeader from './TopHeader.vue';
+/*   import TopNav from './components/Header/TopNav.vue'; */
   
   export default {
-    components: { TopHeader},
+/*     components: { TopNav}, */
     name: "TheHeader",
     data () {
       return {

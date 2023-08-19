@@ -198,7 +198,7 @@
           <template v-slot:append>
             <div class="pa-2 text-center">
               <div class="mb-3" v-if="$store.state.cart.cart.length > 0">
-                <v-btn nuxt to="/cart/confirm" class="rounded-0" large  color="primary">Checkout</v-btn>
+                <v-btn nuxt to="/cart/confirm" class="rounded-0 " large  color="primary">Checkout</v-btn>
                 <v-btn nuxt to="/cart" class="rounded-0"  large outlined color="primary">View Cart</v-btn>
               </div>
             </div>

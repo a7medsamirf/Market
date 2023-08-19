@@ -12,15 +12,15 @@
 
     <div class="inner d-flex align-center justify-center py-16">
       <v-container>
-        <NuxtLink to="/blog">Back to All Articles</NuxtLink>
-        <h3 class="mb-4 font-bold text-4xl">   Here are a list of articles by {{ articles[0].author.name }}:</h3>
+        <NuxtLink to="/blog">Back to All blogs</NuxtLink>
+        <h3 class="mb-4 font-bold text-4xl">   Here are a list of blogs by {{ blogs[0].author.name }}:</h3>
 
         <v-row>
           <v-col cols="12" md="8">
             <v-row>
 
-              <v-col  v-for="article in articles"
-                      :key="article.slug"
+              <v-col  
+                     v-for="blog in blogs" :key="blog.slug"
                       sm="12"
                       md="6"
               >
@@ -35,14 +35,12 @@
                   v-if="!data_loaded"
                 >
 
-                  <NuxtLink
-                    :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-                  >
+                <NuxtLink :to="localePath(blog.path)">
                     <div class="blog-img">
                       <v-img
-                        v-if="article.img"
-                        :src="require(`~/static/images/blog/${article.img}`)"
-                        :alt="article.alt"
+                        v-if="blog.img"
+                        :src="require(`~/static/images/blog/${blog.img}`)"
+                        :alt="blog.alt"
                         height="250"
                       ></v-img>
                       <div class="sb-badge">
@@ -50,7 +48,7 @@
                           class="ma-2 white--text "
                           color="primary"
                           label
-                          v-for="tag in article.tags" :key="tag"
+                          v-for="tag in blog.tags" :key="tag"
                         >
                           <v-icon left text-color="white">
                             mdi-label
@@ -67,16 +65,16 @@
                   </NuxtLink>
                   <div class="post-content pa-5">
                     <v-card-text class="py-1 pa-0">
-                      <span class="blog-Date"> <v-icon small  color="primary">mdi-clock-outline</v-icon>  {{ formatDate(article.updatedAt) }}</span>
-                      <span class="blog-user"> <v-icon small  color="primary">mdi-account</v-icon> {{ article.author.name }}</span>
+                      <span class="blog-Date"> <v-icon small  color="primary">mdi-clock-outline</v-icon>  {{ formatDate(blog.updatedAt) }}</span>
+                      <span class="blog-user"> <v-icon small  color="primary">mdi-account</v-icon> {{ blog.author.name }}</span>
                     </v-card-text>
-                        <NuxtLink  :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-                      <v-card-title class="py-2 pa-0 font-weight-bold">{{ article.title }}</v-card-title>
+                        <NuxtLink  :to="{ name: 'blog-slug', params: { slug: blog.slug } }">
+                      <v-card-title class="py-2 pa-0 font-weight-bold">{{ blog.title }}</v-card-title>
                     </NuxtLink>
-                    <v-card-text class="py-1 pa-0">{{ article.description }}</v-card-text>
+                    <v-card-text class="py-1 pa-0">{{ blog.description }}</v-card-text>
 
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
-                      <v-btn :to="{ name: 'blog-slug', params: { slug: article.slug } }"  large color="primary"
+                      <v-btn :to="{ name: 'blog-slug', params: { slug: blog.slug } }"  large color="primary"
                              class="button figs-btn pa-5 white--text">
                         Read More
                         <v-icon right small>mdi-arrow-right-thick</v-icon>
@@ -105,18 +103,23 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, app, params }) {
+    const defaultLocale = app.i18n.locale;
     const tags = await $content('tags')
       .where({ slug: { $contains: params.tag } })
       .limit(1)
       .fetch()
     const tag = tags.length > 0 ? tags[0] : {}
     const articles = await $content('articles')
+    const blogs = await $content(`${defaultLocale}/blog`)
       .where({ tags: { $contains: tag.name } })
       .sortBy('createdAt', 'asc')
       .fetch()
     return {
-      articles,
+      blogs: blogs.map(blog => ({
+        ...blog,
+        path: blog.path.replace(`/${defaultLocale}`, ''),
+      })),
       tag,
       data_loaded : true
     }

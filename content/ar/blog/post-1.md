@@ -1,5 +1,5 @@
 ---
-title: اشترك في النشرة الإخبارية لدينا
+title: (ar-blog) اشترك في النشرة الإخبارية لدينا
 description: Lorem ipsum dolor sit amet, consecrated advising elite. Sed incident, erat in malady aliquot, est erat faucets purus egret vivre null sem vitae deque.
 img: 1.webp
 alt: nice image

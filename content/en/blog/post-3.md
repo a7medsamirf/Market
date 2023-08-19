@@ -1,5 +1,5 @@
 ---
-title: Pizza Festival – Reopen
+title: Burger
 description: Lorem ipsum dolor sit amet, consecrated advising elite. Sed incident, erat in malady aliquot, est erat faucets purus egret vivre null sem vitae deque.
 slug: post-3
 img: 3.webp

@@ -28,29 +28,28 @@
             <div class="blog-title pa-5">
               <h2 class="use-text-title2 text-color-default text-xs-center">{{ blog.title }}</h2>
 
-              <v-chip-group
-                active-class="deep-purple accent-4 white--text"
-                column
-              >
-                <author :author="blog.author" />
+      
 
-                <v-chip>  <span><v-icon small color="primary" class="fi fi-rr-calendar mr-3"></v-icon></span>
-                  {{ formatDate(blog.updatedAt) }}</v-chip>
-              </v-chip-group>
-
-              <v-divider></v-divider>
+          
             </div>
-
+            <v-divider></v-divider>
 
      <!-- content from markdown -->
 
       <nuxt-content :document="blog" />
             <!-- content author component -->
 
-
+            <author :author="blog.author" />
 
             <!-- prevNext component -->
-
+            <v-chip-group
+                active-class="deep-purple accent-4 white--text"
+                column
+              >
+        
+                <v-chip>  <span><v-icon small color="primary" class="fi fi-rr-calendar mr-3"></v-icon></span>
+                  {{ formatDate(blog.updatedAt) }}</v-chip>
+              </v-chip-group>
 
             <blog-comment />
 

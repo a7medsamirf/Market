@@ -5,8 +5,8 @@ export default {
 /*   ssr: false,
   target: 'static',  */
   head: {
-    titleTemplate: '%s - Nuxt2',
-    title: 'Nuxt2',
+/*     titleTemplate: '%s - Nuxt2', */
+    title: 'Market',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

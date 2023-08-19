@@ -6,7 +6,7 @@
           v-model="searchQuery"
           autocomplete="on"
           :loading="loading"
-          placeholder="Search Articles"
+          placeholder="Search Blogs"
           solo-inverted
           flat
           clearable
@@ -25,16 +25,15 @@
   
   
   
-     <v-list dense v-if="articles.length">
+     <v-list dense v-if="blogs.length">
           <v-list-item-group    v-model="selectedItem"
           color="primary">
-            <v-list-item v-for="article of articles" :key="article.slug">
+            <v-list-item v-for="blog of blogs" :key="blog.slug">
               <v-list-item-content  >
-                        <NuxtLink
-            :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+                        <NuxtLink :to="localePath(blog.path)"
             class="flex px-4 py-2 items-center leading-5 transition ease-in-out duration-150 text-green-500 hover:text-black"
           >
-                <v-list-item-title>{{ article.title }}</v-list-item-title>
+                <v-list-item-title>{{ blog.title }}</v-list-item-title>
                   </NuxtLink>
               </v-list-item-content>
             </v-list-item>
@@ -51,17 +50,17 @@
     data() {
       return {
         searchQuery: '',
-        articles: [],
+        blogs: [],
         loading: false,
       }
     },
     watch: {
       async searchQuery(searchQuery) {
         if (!searchQuery) {
-          this.articles = []
+          this.blogs = []
           return
         }
-        this.articles = await this.$content('articles')
+        this.blogs = await this.$content('blogs')
           .limit(6)
           .search(searchQuery)
           .fetch()
