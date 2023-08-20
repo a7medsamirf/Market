@@ -40,7 +40,7 @@
                   <v-btn
                     depressed
                     nuxt
-                    :to="`/products/${product.name}`"
+                    :to="`/products/${product.id}`"
                     color="primary"
                     class="text-capitalize"
                     min-height="40"

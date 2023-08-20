@@ -2,8 +2,8 @@ const appUrl = 'https://nuxt-i18n-demo.netlify.app';
 import { theme } from './config/vuetify.options'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-/*   ssr: false,
-  target: 'static',  */
+ ssr: false,
+  target: 'static',
   head: {
 /*     titleTemplate: '%s - Nuxt2', */
     title: 'Market',
@@ -28,7 +28,7 @@ export default {
     color: '#356DFF',
     background: '#fff'
   },  */
-  
+
   loading: '~/components/widget/LoadingBar.vue',
 
   transition: 'slide-bottom',
@@ -41,6 +41,7 @@ export default {
     '~/assets/vendors/slick-carousel/slick.css',
     '~/assets/vendors/slick-carousel/slick.css',
     '~/assets/vendors/materialdesignicons.min.css',
+    '~/assets/vendors/animate.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -121,17 +122,17 @@ export default {
             cookieKey: 'i18n_redirected',
             alwaysRedirect: true
           },
-  
+
         },
     /*
    ** Sitemap config
-   */     
+   */
       sitemap: {
         hostname: appUrl,
         trailingSlash: true,
         i18n: true
       },
-      
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

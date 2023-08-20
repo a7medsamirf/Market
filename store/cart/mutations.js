@@ -35,7 +35,7 @@ export default {
     localStorage.setItem("myCart", JSON.stringify(state.cart));
     CalculateTotal(state); ////////////
     this.$toast.success("Add To Cart", {
-      position: "bottom-right",
+      position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
@@ -61,7 +61,7 @@ export default {
       item.quantity -= 1;
     }
     this.$toast.success("Cart Updated.", {
-      position: "bottom-right",
+      position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
@@ -80,7 +80,7 @@ export default {
     state.cart.splice(index, 1);
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     this.$toast.error("Item Removed.", {
-      position: "top-center",
+      position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
@@ -102,7 +102,7 @@ export default {
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
     this.$toast.success("Cart Updated.", {
-      position: "bottom-right",
+      position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
       pauseOnFocusLoss: true,
