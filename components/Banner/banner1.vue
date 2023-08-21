@@ -1,8 +1,8 @@
 <template lang="">
   <v-parallax
     dark
-    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-    style="min-height: 434px"
+    :src="require(`~/static/images/Banner/Banner.png`)"
+    style="min-height: 500px"
   >
     <v-row
       align="center"
@@ -28,5 +28,5 @@ export default {
 }
 </script>
 <style lang="">
-    
+
 </style>

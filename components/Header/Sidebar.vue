@@ -3,20 +3,20 @@
       <!---------- Start Navigation Drawer ---------->
       <v-list nav dense >
         <div v-for="(link, i) in links" :key="i">
-  
+
           <v-list-item
             v-if="!link.subLinks"
             :to="link.to"
              active-class="primary--text "
-            
+
           >
             <v-list-item-icon>
               <v-icon>{{ link.icon }}</v-icon>
             </v-list-item-icon>
-  
-            <v-list-item-title v-text="link.title" />
+
+            <v-list-item-title>link.title</v-list-item-title>
           </v-list-item>
-  
+
           <v-list-group
             v-else
             :key="link.title"
@@ -26,7 +26,7 @@
             <template v-slot:activator>
               <v-list-item-title>{{ link.title }}</v-list-item-title>
             </template>
-  
+
             <v-list-item
               v-for="sublink in link.subLinks"
               :to="sublink.to"
@@ -36,19 +36,19 @@
                 <v-icon>{{ sublink.icon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>{{ sublink.title }}</v-list-item-title>
-  
+
             </v-list-item>
-  
+
           </v-list-group>
-  
+
         </div>
-  
+
       </v-list>
       <!---------- End Navigation Drawer ---------->
     </div>
   </template>
   <script>
-  
+
   export default {
     name: "Sidebar",
     data () {
@@ -60,7 +60,7 @@
             subLinks: [
               {title: 'gallery', to: '/gallery', icon: 'mdi-note-multiple-outline'},
               {title: 'faq', to: '/faq', icon: 'mdi-chart-bubble'},
-  
+
             ]
           },
           {icon: 'mdi-chart-bubble', title: 'TestPage', to: '/TestPage'},
@@ -74,12 +74,12 @@
             ]
           },
         ],
-  
+
       }
-  
+
     },
-  
-  
+
+
   }
   </script>
   <style scoped lang="scss">

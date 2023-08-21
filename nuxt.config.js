@@ -23,11 +23,11 @@ export default {
     base: '/Startup/'
   }, */
 
-/*   loadingIndicator: {
-    name: 'chasing-dots',
-    color: '#356DFF',
+  loadingIndicator: {
+    name: 'wandering-cubes',
+    color: '#62D0B6',
     background: '#fff'
-  },  */
+  },
 
   loading: '~/components/widget/LoadingBar.vue',
 

@@ -1,8 +1,17 @@
 <template>
   <div>
-    <HomeCarousel :sale_items="sale_items"/>
+    <v-img
+                  :src="require(`~/static/images/Banner/Banner.png`)"
+                  height="500"
+                  contain
+                ></v-img>
+
+
+    <!-- <HomeCarousel :sale_items="sale_items"/> -->
     <support />
+    <banner2 />
     <review />
+
     <banner-1 />
       <brands />
 
@@ -15,11 +24,12 @@
 <script>
 import HomeCarousel from '~/components/section/HomeCarousel.vue'
 import Banner1 from '~/components/Banner/banner1.vue'
+import banner2 from '~/components/Banner/banner2.vue'
 import Brands from '~/components/Sliders/Brands.vue'
 import Review from '~/components/Sliders/Review.vue'
 import Support from '~/components/products/Support.vue'
 export default {
-  components: {Brands, Banner1, Review, HomeCarousel, Support },
+  components: {Brands, Banner1, banner2, Review, HomeCarousel, Support },
   name: 'IndexPage',
   async created() {
     this.sale_items = await this.$content("products")
