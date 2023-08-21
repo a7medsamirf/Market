@@ -1,14 +1,20 @@
 <template>
   <div class="shop-wrap">
-    <div class="breadcrumb">
-      <div class="col-full">
-        <h1 class="breadcrumb-heading"> {{PageTitle}}</h1>
-        <nav class="woocommerce-breadcrumb">
-          <nuxt-link to="/">Home</nuxt-link>
-          <span class="breadcrumb-separator"> / {{PageTitle}}</span>
-        </nav>
-      </div>
-    </div>
+    <v-container>
+   <v-breadcrumbs :items="items">
+    <template v-slot:item="{ item }">
+      <v-breadcrumbs-item
+        :to="item.to"
+        :disabled="item.disabled"
+      >
+      {{ $t(item.text).toUpperCase() }}
+
+      </v-breadcrumbs-item>
+    </template>
+  </v-breadcrumbs>
+
+      </v-container>
+
 
     <div class="inner d-flex align-center justify-center py-16">
     <v-container>
@@ -187,6 +193,10 @@ export default {
   },
   data() {
     return {
+      items: [
+        {text: 'links.Home', disabled: false, to: '/',},
+        {text: 'links.Shop',disabled: true,to: '/products',},
+      ],
       PageTitle: 'Shop',
       products: null,
       tags: null,
@@ -226,7 +236,7 @@ export default {
   methods : {
     AddToCart(prod){
       this.product = prod;
-      setTimeout(()=>{ 
+      setTimeout(()=>{
         this.$store.commit('cart/AddToCart', prod);
         this.loading = false;
       } , 1000);

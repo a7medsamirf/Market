@@ -14,16 +14,19 @@
   "Review-Title":"آراء العملاء",
   "Review-Description":"بيتم استعراض بعض آراء وتعليقات المستخدمين"
 },
+  "links":{
+    "Home": "الرئيسية",
+    "Cart": "السلة",
+    "solutions": "حلول",
+    "Services": "خدماتنا",
+    "about-Us": "من نحن",
+    "Blog": "المقالات",
+    "Shop": "المتجر",
+    "contactus": "اتصل بنا",
+    "Social-Media": "تابعنا على ",
+    "QuickLinks": "روابط سريعة",
+    "Copyright": "حقوق الطبع والنشر",
+    "reserved": " كل الحقوق محفوظة."
+  }
 
-  "home": "الرئيسية",
-  "solutions": "حلول",
-  "Services": "خدماتنا",
-  "about-Us": "من نحن",
-  "Blog": "المقالات",
-  "Shop": "المتجر",
-  "contactus": "اتصل بنا",
-  "Social-Media": "تابعنا على ",
-  "QuickLinks": "روابط سريعة",
-  "Copyright": "حقوق الطبع والنشر",
-  "reserved": " كل الحقوق محفوظة."
 }

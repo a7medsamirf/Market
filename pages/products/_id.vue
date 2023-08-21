@@ -1,18 +1,21 @@
 <template>
   <div class="shop-wrap">
-    <div class="breadcrumb">
-      <div class="col-full" v-if="product">
-        <h1 class="breadcrumb-heading"> {{ product.name }}</h1>
-        <nav class="woocommerce-breadcrumb">
-          <nuxt-link to="/">Home</nuxt-link>
-          <nuxt-link to="/products">/ shop</nuxt-link>
-          <span class="breadcrumb-separator"> / {{ product.name }} </span>
-        </nav>
+    <v-container>
+   <v-breadcrumbs :items="items">
+    <template v-slot:item="{ item }">
+      <v-breadcrumbs-item
+        :to="item.to"
+        :disabled="item.disabled"
+      >
+      {{ $t(item.text).toUpperCase() }}
 
-      </div>
-    </div>
+      </v-breadcrumbs-item>
+    </template>
+  </v-breadcrumbs>
 
-    <div class="inner d-flex align-center justify-center py-20">
+      </v-container>
+
+    <div class="inner d-flex align-center justify-center py-16">
       <v-container >
         <v-row v-if="product"  justify="center">
           <v-col cols="12" lg="6" md="12">
@@ -41,7 +44,7 @@
               <v-spacer></v-spacer>
             <v-card-title class="py-2 pa-0 font-weight-bold text-color-default">
               <h3>{{ product.name }}</h3>
-              
+
               <v-spacer></v-spacer>
             </v-card-title>
                 <v-rating
@@ -110,6 +113,11 @@ export default {
   },
   data() {
     return {
+      items: [
+        {text: 'links.Home', disabled: false, to: '/',},
+        {text: 'links.Shop', disabled: false,to: '/products',},
+        {text: '{blog.title}', disabled: true,to: '/products',},
+      ],
       product: null,
       loader: null,
       loading: false,

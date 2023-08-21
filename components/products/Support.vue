@@ -1,5 +1,6 @@
 <template>
 <div class="pt-20">
+  <v-container>
     <v-row>
     <v-col lg="4" v-for="(support, index) in supports" :key="index">
   <v-card
@@ -26,6 +27,8 @@
     </v-col>
 
     </v-row>
+  </v-container>
+
 
 </div>
 </template>

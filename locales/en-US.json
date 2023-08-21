@@ -14,15 +14,19 @@
     "Review-Title":"customer reviews",
     "Review-Description":"Some user opinions and comments are reviewed"
   },
-  "home": "Home",
-  "solutions": "Solutions",
-  "Services": "Services",
-  "about-Us": "about-Us",
-  "Blog": "Blog",
-  "Shop": "Shop",
-  "contactus": "اتصل بنا",
-  "Social-Media": "تابعنا على ",
-  "QuickLinks": "روابط سريعة",
-  "Copyright": "حقوق الطبع والنشر",
-  "reserved": " كل الحقوق محفوظة."
+  "links":{
+      "Home": "Home",
+      "Cart": "Cart",
+      "solutions": "Solutions",
+      "Services": "Services",
+      "about-Us": "about-Us",
+      "Blog": "Blog",
+      "Shop": "Shop",
+      "contactus": "اتصل بنا",
+      "Social-Media": "تابعنا على ",
+      "QuickLinks": "روابط سريعة",
+      "Copyright": "حقوق الطبع والنشر",
+      "reserved": " كل الحقوق محفوظة."
+    }
+
 }

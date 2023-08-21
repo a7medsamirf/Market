@@ -25,24 +25,24 @@
 
    <!---------- Start App Bar ---------->
 <!--    <v-app-bar app height="85px" fixed > -->
-    <v-app-bar class="nav"  height="85px"  elevation="0">
+    <v-app-bar color="BgColor" class="nav"  height="85px"  elevation="0" style="border-bottom: 1px solid #d2d2d2 !important;">
       <v-container class="pa-0 fill-height">
-        <v-app-bar-nav-icon class="hidden-md-and-up"  @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
         <div class="logo">
           <NuxtLink :to="localePath('/')" >
           <v-img v-if="!$vuetify.theme.dark" max-height="50" max-width="170" :src="require('static/images/logo/dark-logo.png')" ></v-img>
           <v-img v-else max-height="50" max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
         </NuxtLink>
         </div>
-   <!--      <v-text-field
+    <v-text-field
         flat
         solo-inverted
         hide-details
         label="ابحث عما تريد"
         prepend-inner-icon="mdi-magnify"
         class="hidden-sm-and-down px-10 ml-4"
-      /> -->
-        <nav-search />
+      />
+
 
         <v-spacer />
 
@@ -153,11 +153,9 @@ import Sidebar from "~/components/Header/Sidebar";
 import Settings from '~/components/Header/Settings.vue';
 import MenuNav from './menu-nav.vue';
 import TopNav from './TopNav.vue';
-import NavSearch from '../widget/NavSearch.vue';
-
 
 export default {
-  components: {Sidebar, ThemeSwitcher,Settings, MenuNav, TopNav, NavSearch},
+  components: {Sidebar, ThemeSwitcher,Settings, MenuNav, TopNav},
   data () {
     return {
       drawer: false,
@@ -177,9 +175,8 @@ export default {
 header.nav.v-toolbar.v-app-bar.v-app-bar--is-scrolled{
     position: fixed;
     top: 0;
-    box-shadow: none!important;
     z-index: 9;
-    animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+    animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
     transition: all 0.5s ease-in-out;
     transform: translateY(100px);
 }

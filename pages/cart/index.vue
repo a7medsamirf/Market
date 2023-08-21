@@ -1,14 +1,22 @@
 <template>
-    <div class="contact-wrap">
-      <div class="breadcrumb">
-        <div class="col-full">
-          <nav class="woocommerce-breadcrumb">
-            <nuxt-link to="/">Home</nuxt-link>
-            <span class="breadcrumb-separator dark"> / {{PageTitle}}</span></nav>
-        </div>
-      </div>
+    <div class="cart-wrap ">
+      <v-container>
+   <v-breadcrumbs :items="items">
+    <template v-slot:item="{ item }">
+      <v-breadcrumbs-item
+        :to="item.to"
+        :disabled="item.disabled"
+      >
+      {{ $t(item.text).toUpperCase() }}
+      
+      </v-breadcrumbs-item>
+    </template>
+  </v-breadcrumbs>
 
-      <div class="inner align-center justify-center py-16">
+      </v-container>
+
+
+      <div class="inner align-center justify-center">
         <div class="text-center" v-if="$store.state.cart.cart.length == 0">
           <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
           <p>No Items Just Yet</p>
@@ -79,7 +87,7 @@
   <v-card-actions>
     <div class="mb-3" >
               <v-btn
-                
+
                 nuxt
                 to="/cart/confirm"
                 min-width="150"
@@ -112,6 +120,10 @@
     data(){
       return {
         PageTitle: 'Cart',
+        items: [
+        {text: 'links.Home', disabled: false, to: '/',},
+        {text: 'links.Cart',disabled: true,to: '/cart',},
+      ],
       }
     },
 
