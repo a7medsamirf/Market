@@ -52,10 +52,12 @@
       <v-icon size="20">mdi-minus-circle</v-icon>
     </v-btn>
 
-    {{ $formatMoney(c.product.price * c.quantity) }}
-    <v-btn @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
+  <span>  {{ $formatMoney(c.product.price * c.quantity) }}</span>
+
+    <v-btn  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
       <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
     </v-btn>
+
   </v-list-item>
 </v-card>
 
@@ -87,7 +89,7 @@
   <v-card-actions>
     <div class="mb-3" >
               <v-btn
-
+                
                 nuxt
                 to="/cart/confirm"
                 min-width="150"

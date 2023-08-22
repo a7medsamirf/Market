@@ -6,7 +6,7 @@
         dark
         elevation="0"
       >
-      <v-container class="pa-0 fill-height d-flex justify-center" >
+      <v-container fluid class="pa-0 fill-height d-flex justify-center" >
 
         <v-toolbar-items
          class="hidden-md-and-down DesktopNav"

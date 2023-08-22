@@ -6,7 +6,7 @@
         dense
         elevation="0"
       >
-      <v-container class="pa-0 fill-height">
+      <v-container fluid class="pa-0 fill-height">
         <v-btn text>
         News
       </v-btn>

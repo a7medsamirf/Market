@@ -44,30 +44,25 @@
 
   &-title2 {
     font-size: $h2-font-size;
-
+    line-height: $spacing3;
     @include breakpoints-down(md) {
       font-size: $h3-font-size;
-      line-height: $spacing7;
     }
 
     @include breakpoints-down(xs) {
       font-size: $h4-font-size;
-      line-height: $spacing5
     }
   }
 
   &-title3 {
     font-size: $h3-font-size;
     font-weight: $font-SemiBold;
-
+    line-height: $spacing3;
     @include breakpoints-down(md) {
       font-size: $h4-font-size;
-      line-height: $spacing7;
     }
-
     @include breakpoints-down(xs) {
       font-size: $h5-font-size;
-      line-height: $spacing5
     }
   }
 
@@ -77,12 +72,10 @@
 
     @include breakpoints-down(md) {
       font-size: $h4-font-size;
-      line-height: $spacing7;
     }
 
     @include breakpoints-down(xs) {
       font-size: $h5-font-size;
-      line-height: $spacing5
     }
   }
 
@@ -104,15 +97,15 @@
   &-subtitle {
     font-size: $h6-font-size;
     font-weight: $font-medium;
-     @include description-text-color;
+    line-height: $spacing3;
+    @include description-text-color;
     @include breakpoints-down(md) {
       font-size: $paragraph;
-      line-height: 36px;
+      line-height: $spacing2;
     }
-
     @include breakpoints-down(xs) {
       font-size: $paragraph;
-      line-height: 28px;
+      line-height: $spacing1;
     }
   }
 

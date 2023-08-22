@@ -3,7 +3,7 @@
   <span class="comment-reply-title">Leave a Reply </span>
   <p class="comment-notes">email address will not be published Required fields are marked</p>
   <v-form v-model="valid">
-    <v-container>
+    <v-container fluid>
       <v-row>
         <v-col
           cols="12"

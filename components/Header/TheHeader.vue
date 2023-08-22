@@ -24,9 +24,9 @@
 
 
    <!---------- Start App Bar ---------->
-<!--    <v-app-bar app height="85px" fixed > -->
-    <v-app-bar color="BgColor" class="nav"  height="85px"  elevation="0" style="border-bottom: 1px solid #d2d2d2 !important;">
-      <v-container class="pa-0 fill-height">
+
+    <v-app-bar color="BgColor" class="nav"  height="85px"  elevation="0" >
+      <v-container fluid class="pa-0 fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
         <div class="logo">
           <NuxtLink :to="localePath('/')" >
@@ -132,8 +132,8 @@
           <template v-slot:append>
             <div class="pa-2 text-center">
               <div class="mb-3" v-if="$store.state.cart.cart.length > 0">
-                <v-btn nuxt to="/cart/confirm" class="rounded-0 mb-3" elevation="0" block  color="primary">Checkout</v-btn>
-                <v-btn nuxt to="/cart" class="rounded-0" block outlined elevation="0" color="primary">View Cart</v-btn>
+                <v-btn nuxt :to="localePath('/cart/confirm')" class="rounded-0 mb-3" elevation="0" block  color="primary">Checkout</v-btn>
+                <v-btn nuxt :to="localePath('/cart')" class="rounded-0" block outlined elevation="0" color="primary">View Cart</v-btn>
               </div>
             </div>
           </template>

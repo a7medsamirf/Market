@@ -1,25 +1,27 @@
 <template>
 <div>
-  <v-container>
-      <v-row dense>
-        <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :cols="card.flex"
-        >
-          <v-card>
+  <v-container fluid>
+      <v-row>
+        <v-col cols="12" lg="6" md="6" sm="12"  v-for="card in cards" :key="card.title">
+          <v-card class="" elevation="0" rounded="lg">
             <v-img
-              :src="card.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
+              :src="require(`~/static/images/Banner/${card.images}`)"
+              height="200"
             >
+                      <v-row class="fill-height pa-15" justify="end" align="center">
+                          <div class="images-wrapper">
+                         <div class="font-weight-bold use-text-title6">سماعة ديجتال</div>
+                          <v-card-title color="Gray600" class="font-weight-bold use-text-title2 px-0">{{ card.title }}</v-card-title>
+                          <v-list-item-subtitle class="font-weight-bold use-text-title5">{{ card.subtitle }}</v-list-item-subtitle>
+                          </div>
+                      </v-row>
 
-              <v-card-title><span v-html="card.title"></span></v-card-title>
+
             </v-img>
 
           </v-card>
         </v-col>
+
       </v-row>
     </v-container>
 </div>
@@ -30,12 +32,17 @@
 
 
 <script>
+import imgAPI from '~/server/api/imgAPI'
   export default {
     data: () => ({
       cards: [
-        { title: 'أفضل صوت نقى', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+        { title: 'أفضل صوت نقى', subtitle: 'تسوق الأن', images: imgAPI.Banner[0]},
+        { title: 'أفضل صوت نقى', subtitle: 'تسوق الأن', images: imgAPI.Banner[1]},
       ],
     }),
   }
 </script>
+
+<style scoped>
+
+</style>

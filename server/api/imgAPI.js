@@ -16,6 +16,17 @@ const imgAPI = {
     'Brands-5.png',
     'Brands-6.png',
   ],
+  Banner:[
+    'Banner-1.webp',
+    'Banner-2.webp',
+  ],
+  icone:[
+    'Features-Icons.png',
+    'Features-Icons-1.png',
+    'Features-Icons-2.png',
+
+
+  ]
 
 }
 

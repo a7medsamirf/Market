@@ -3,7 +3,7 @@
 
     <div id="footer" class="pa-0">
       <div class="pt-20">
-        <v-container>
+        <v-container fluid>
           <v-row>
             <v-col cols="12" lg="3" md="6" sm="12">
               <button class="title-btn rounded-xl elevation-0">  {{ $t('contactus') }}</button>
@@ -77,7 +77,7 @@
               <v-divider class="white--text"></v-divider>
               <div class="py-4" >
                 {{ $t('Copyright') }}
-                {{ new Date().getFullYear() }} © <strong>StartUp</strong>. 
+                {{ new Date().getFullYear() }} © <strong>StartUp</strong>.
                 {{ $t('reserved') }}
               </div>
               </v-col>

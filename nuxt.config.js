@@ -23,11 +23,11 @@ export default {
     base: '/Startup/'
   }, */
 
-  loadingIndicator: {
+ /* loadingIndicator: {
     name: 'wandering-cubes',
     color: '#62D0B6',
     background: '#fff'
-  },
+  }, */
 
   loading: '~/components/widget/LoadingBar.vue',
 
@@ -72,6 +72,7 @@ export default {
       timeout: 1000,
       draggable: false
     }],
+
     "vue-sweetalert2/nuxt/no-css",
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
