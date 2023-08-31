@@ -23,6 +23,7 @@
         <v-img width="100%" height="500"  class="el rounded-lg"  :src="require(`~/static/images/shop/${product.image}`)"></v-img>
             <div class="sb-badge">
               <v-chip
+                elevation="0"
                 class="ma-2 white--text rounded-0"
                 color="primary "
                 label
@@ -71,6 +72,7 @@
                 class="ma-2 text-capitalize rounded-0 order-btn"
                 color="primary"
                 large
+                elevation="0"
               >
                 <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
             </v-card-actions>

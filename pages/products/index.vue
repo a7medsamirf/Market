@@ -161,6 +161,7 @@
                           class="ma-2 text-capitalize rounded-0 order-btn"
                           color="primary"
                           large
+                          elevation="0"
                       >
                         <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
                     </v-card-actions>

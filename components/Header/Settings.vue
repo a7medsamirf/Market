@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <v-btn class="lang-btn" icon
            v-for="locale in filteredLocales"
@@ -33,14 +33,14 @@ export default {
 }
 </script>
 
-
+ -->
 
 
 
 <!-- Old -->
 
 
-<!-- <template>
+ <template>
   <div class="links">
     <v-btn class="lang-btn" icon
            v-for="locale in $i18n.locales"
@@ -72,4 +72,4 @@ export default {
 }
 </script>
 
- -->
+
