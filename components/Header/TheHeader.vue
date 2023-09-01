@@ -26,7 +26,7 @@
    <!---------- Start App Bar ---------->
 
     <v-app-bar  class="nav"  height="85px"  elevation="0" >
-      <v-container fluid class="pa-0 fill-height">
+      <v-container  class="fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
         <div class="logo">
           <NuxtLink :to="localePath('/')" >

@@ -1,6 +1,6 @@
 <template>
   <div class="pt-20">
-    <v-container fluid>
+    <v-container >
       <v-row>
       <v-col cols="12" lg="3" md="6" sm="6" v-for="(support, index) in supports" :key="index">
     <v-card

@@ -1,36 +1,36 @@
 <template>
     <div>
       <v-app-bar class=""
-      height="50px" 
+      height="50px"
       elevation="4"
       dense
     >
-    <v-container class="pa-0 fill-height" >
+    <v-container class="fill-height" >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-  
+
       <v-toolbar-title>Page title</v-toolbar-title>
-  
+
       <v-spacer></v-spacer>
-  
+
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
-  
+
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-      
+
     </v-container>
     </v-app-bar>
-  
-  
+
+
   <!---------- Start TopHeader ---------->
 <!--       <TopNav /> -->
-    
-  
+
+
       <!---------- Start Navigation Drawer ---------->
       <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  :right="$vuetify.rtl">
-  
+
         <v-list-item class="pa-3">
           <div class="logo">
             <NuxtLink :to="localePath('/')" >
@@ -41,19 +41,19 @@
           <v-spacer></v-spacer>
           <v-btn class="close-icon" icon @click="drawer = !drawer"> <v-icon>mdi-close</v-icon></v-btn>
         </v-list-item>
-  
-     
-  
+
+
+
       </v-navigation-drawer>
       <!---------- End Navigation Drawer ---------->
-  
+
       <!---------- Start App Bar ---------->
       <v-app-bar class="mt-16" dark height="50px"  elevation="0">
-        <v-container class="pa-0 fill-height">
+        <v-container class="fill-height">
        <v-app-bar-nav-icon
             class="hidden-md-and-up"
-            @click.stop="drawer = !drawer" /> 
-       
+            @click.stop="drawer = !drawer" />
+
           <v-spacer />
           <v-toolbar-items
             class="hidden-md-and-down DesktopNav"
@@ -64,7 +64,7 @@
                    :to="localePath(item.to)" router>
                    {{$t(item.title)}}
             </v-btn>
-  
+
             <v-menu
               class="elevation-0"
               open-on-hover :close-on-content-click="false"
@@ -78,10 +78,10 @@
               active-class="primary--text"
             >
               <!--       open-on-hover bottom offset-y transition="scroll-y-reverse-transition" -->
-  
+
               <template v-slot:activator="{ on, attrs }">
                 <v-btn :ripple="false" text v-bind="attrs" v-on="on" >{{$t(item.title)}}<v-icon right>mdi-chevron-down</v-icon></v-btn>
-  
+
               </template>
               <v-list>
                 <v-list-item
@@ -95,20 +95,20 @@
                 </v-list-item>
               </v-list>
             </v-menu>
-          
+
           </v-toolbar-items>
-  
-  
+
+
         </v-container>
       </v-app-bar>
       <!---------- End App Bar ---------->
-  
+
     </div>
   </template>
-  
+
   <script>
 /*   import TopNav from './components/Header/TopNav.vue'; */
-  
+
   export default {
 /*     components: { TopNav}, */
     name: "TheHeader",
@@ -126,13 +126,13 @@
           {title: 'Blog', to: '/blog'},
           {title: 'Shop', to: '/products'},
         ],
-  
+
       }
     },
-  
+
   }
   </script>
-  
+
   <style scoped lang="scss">
   .v-toolbar .v-btn:before {
     background-color: transparent;
@@ -146,7 +146,7 @@
     position: absolute;
     right: 0;
     top: 0;
-  
+
   }
   header.v-toolbar a.v-btn--active {
     color: #62d0b6 !important;

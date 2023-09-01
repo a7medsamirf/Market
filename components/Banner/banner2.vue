@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-container fluid>
+  <v-container >
       <v-row>
         <v-col cols="12" lg="6" md="6" sm="12"  v-for="card in cards" :key="card.title">
           <v-card class="" elevation="0" rounded="lg">
