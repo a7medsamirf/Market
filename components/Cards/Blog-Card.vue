@@ -3,7 +3,7 @@
     <v-container class="fill-height">
       <Title :SectionTitle="$t('sectiontitle.Brands-Title')" :SectioDesc="$t('sectiontitle.Brands-Description')" />
       <v-spacer></v-spacer>
-      <v-btn :to="localePath('/blog')" color="primary" outlined class="ma-2 white--text pa-5">عرض الكل <v-icon right dark> mdi-cloud-upload </v-icon> </v-btn>
+      <v-btn :to="localePath('/blog')" color="primary" outlined class="white--text pa-5">عرض الكل <v-icon right dark> mdi-cloud-upload </v-icon> </v-btn>
 
 
       <v-row class="mt-10">
@@ -23,8 +23,8 @@
           v-if="blog.img"
           :src="require(`~/static/images/blog/${blog.img}`)"
           :alt="blog.alt"
-            class="white--text align-end"
-            height="300px"
+            class="white--text"
+            height="250px"
     >
 
     <v-chip
