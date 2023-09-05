@@ -78,7 +78,7 @@
             <p>Your cart is empty</p>
           </div>
           <div class="py-3">
-          <template v-for="(c, i) in $store.state.cart.cart">
+          <template v-for="(cartItem, i) in $store.state.cart.cart">
               <v-col :key="`cartItem${i}`" class="py-1">
                 <v-card
                   outlined
@@ -92,16 +92,16 @@
                       color="grey"
                       class="rounded-lg"
                     >
-                      <v-img class="rounded-lg" :title="c.product.name" :alt="c.product.name" height="80" :src="require(`~/static/images/shop/${c.product.image}`)" ></v-img>
+                      <v-img class="rounded-lg" :title="cartItem.product.name" :alt="cartItem.product.name" height="80" :src="require(`~/static/images/shop/${cartItem.product.image}`)" ></v-img>
                     </v-list-item-avatar>
                     <v-list-item-content>
-                      <v-list-item-title class="text-p mb-1">{{ c.product.name }}</v-list-item-title>
-                      <v-list-item-subtitle>{{ $formatMoney(c.product.price * c.quantity) }}</v-list-item-subtitle>
+                      <v-list-item-title class="text-p mb-1">{{ cartItem.product.name }}</v-list-item-title>
+                      <v-list-item-subtitle>{{ $formatMoney(cartItem.product.price * cartItem.quantity) }}</v-list-item-subtitle>
                       <v-list-item-subtitle>
                         <v-btn @click="$store.commit('cart/IncreaseItemCount', i)" icon color="primary">
                           <v-icon size="20">mdi-plus-circle</v-icon>
                         </v-btn>
-                        <span class="mx-2">{{ c.quantity }}</span>
+                        <span class="mx-2">{{ cartItem.quantity }}</span>
                         <v-btn color="primary"  @click="$store.commit('cart/DecreaseItemCount', i)" icon>
                           <v-icon size="20">mdi-minus-circle</v-icon>
                         </v-btn></v-list-item-subtitle>

@@ -2,7 +2,7 @@ export default  {
   burger:[
     {
       "id": 1,
-      "image": "1.webp",
+      "image": "1.png",
       "subjectCard":"back-end",
       "title": "Jean Doe - VP Company 1",
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
@@ -12,7 +12,7 @@ export default  {
     },
     {
       "id": 2,
-      "image": "2.webp",
+      "image": "2.png",
       "title": "Jean Doe - VP Company 2",
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
       "length": "6,575 km",
@@ -24,7 +24,7 @@ export default  {
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
       "length": "6,575 km",
       "continent": "Antarctica",
-      "image": "1.webp",
+      "image": "1.png",
       "updatedAt": "2020-12-11T15:40:35.000Z"
     },
     {
@@ -32,7 +32,7 @@ export default  {
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
       "length": "6,575 km",
       "continent": "Antarctica",
-      "image": "4.webp",
+      "image": "4.png",
       "updatedAt": "2020-12-11T15:40:35.000Z"
     },
     {
@@ -40,7 +40,7 @@ export default  {
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
       "length": "6,575 km",
       "continent": "Antarctica",
-      "image": "1.webp",
+      "image": "1.png",
       "updatedAt": "2020-12-11T15:40:35.000Z"
     },
     {
@@ -48,7 +48,7 @@ export default  {
       "description": "Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.",
       "length": "6,575 km",
       "continent": "Antarctica",
-      "image": "1.webp",
+      "image": "1.png",
       "updatedAt": "2020-12-11T15:40:35.000Z"
     },
   ],

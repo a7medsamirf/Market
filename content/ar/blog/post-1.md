@@ -1,7 +1,7 @@
 ---
 title: (ar-blog) اشترك في النشرة الإخبارية لدينا
 description: Lorem ipsum dolor sit amet, consecrated advising elite. Sed incident, erat in malady aliquot, est erat faucets purus egret vivre null sem vitae deque.
-img: 1.webp
+img: 1.png
 alt: nice image
 author:
   name: ahmed samir

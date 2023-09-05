@@ -8,7 +8,7 @@
 
 
       <v-row class="mt-10">
-        <v-col cols="12" lg="4" md="6" sm="6">
+        <v-col cols="12" lg="3" md="3" sm="6" v-for="(product, i) in productsitems" :key="`productsitems${i}`">
           <v-skeleton-loader
                   v-if="data_loaded"
                   type=" card-avatar, article, actions"
@@ -16,8 +16,7 @@
                 </v-skeleton-loader>
 
                 <v-card
-                  class="mx-auto my-12 Product-Card"
-                  max-width="374"
+                  class="mx-auto Product-Card"
                   elevation-0
                   outlined
                   flat
@@ -25,57 +24,42 @@
               >
 
     <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      height="200"
+      :src="require(`~/static/images/shop/${product.image}`)"
     >
     <v-chip
       class="ma-2"
       color="primary"
       label
-      text-color="white">  YESY   </v-chip>
- 
+      text-color="white">  {{ $formatMoney(product.price) }}   </v-chip>
+
   </v-img>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+  <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text">  {{ $t('product.name ') }} </v-card-title>
 
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
-
-        <div class="grey--text ms-4">
-          4.5 (413)
-        </div>
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div>
-
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+    <v-card-text class="product-description text-Gray600">
+      <p class=""> {{ product.description }}</p>
     </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
 
     <v-card-actions>
       <v-btn
-        color="primary"
+        outlined
+        class="pa-5"
+        depressed
+        nuxt
+        :to="`/products/${product.id}`"
+      >
+      أضف للسلة  
+      <v-icon size="20">mdi-cart-outline</v-icon>
+      </v-btn>
+
+
+      <v-spacer> </v-spacer>
+      <v-btn
         outlined
         class="pa-5"
       >
-        Reserve  <v-icon size="20">mdi-cart-outline</v-icon>
+      <i class="fi fi-rr-heart"></i>
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -94,27 +78,39 @@
   </div>
 </template>
 <script>
-
+import Title from '../widget/Title.vue'
 export default {
+  
     name: "Product-Card",
-    components: { },
-    props: ['blogs'],
+    components: {Title },
+    props: { productsitems: Array },
     data () {
     return {
       data_loaded : true,
     }
-
   },
   mounted(){
     setTimeout(()=>{
       this.data_loaded= false;
     } , 2000);
   },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('ar', options)
+    }
+  },
 
 }
 </script>
-<style lang="">
+<style>
 
+.product-description p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 </style>
 
 

@@ -1,173 +1,18 @@
 <template>
-    <div>
-      <v-app-bar class=""
-      height="50px"
-      elevation="4"
-      dense
-    >
-    <v-container class="fill-height" >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Page title</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-    </v-container>
-    </v-app-bar>
-
-
-  <!---------- Start TopHeader ---------->
-<!--       <TopNav /> -->
-
-
-      <!---------- Start Navigation Drawer ---------->
-      <v-navigation-drawer class="hidden-md-and-up" v-model="drawer"  :right="$vuetify.rtl">
-
-        <v-list-item class="pa-3">
-          <div class="logo">
-            <NuxtLink :to="localePath('/')" >
-            <v-img v-if="!$vuetify.theme.dark" max-height="50" max-width="170" :src="require('static/images/logo/dark-logo.png')" ></v-img>
-            <v-img v-else max-height="50" max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
-          </NuxtLink>
-          </div>
-          <v-spacer></v-spacer>
-          <v-btn class="close-icon" icon @click="drawer = !drawer"> <v-icon>mdi-close</v-icon></v-btn>
-        </v-list-item>
-
-
-
-      </v-navigation-drawer>
-      <!---------- End Navigation Drawer ---------->
-
-      <!---------- Start App Bar ---------->
-      <v-app-bar class="mt-16" dark height="50px"  elevation="0">
-        <v-container class="fill-height">
-       <v-app-bar-nav-icon
-            class="hidden-md-and-up"
-            @click.stop="drawer = !drawer" />
-
-          <v-spacer />
-          <v-toolbar-items
-            class="hidden-md-and-down DesktopNav"
-            v-for="(item, i) in items" :key="i">
-            <v-btn text
-                   v-if="!item.subitems"
-                   exact
-                   :to="localePath(item.to)" router>
-                   {{$t(item.title)}}
-            </v-btn>
-
-            <v-menu
-              class="elevation-0"
-              open-on-hover :close-on-content-click="false"
-              transition="slide-y-transition"
-              content-class="nav-menu"
-              min-width="200"
-              v-else
-              :key="item.title"
-              :value="false"
-              exact
-              active-class="primary--text"
-            >
-              <!--       open-on-hover bottom offset-y transition="scroll-y-reverse-transition" -->
-
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn :ripple="false" text v-bind="attrs" v-on="on" >{{$t(item.title)}}<v-icon right>mdi-chevron-down</v-icon></v-btn>
-
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="subitem in item.subitems"
-                  :to="localePath(subitem.to)"
-                  :key="subitem.title"
-                  active-class="primary--text"
-                  exact
-                >
-                  <v-list-item-title :inner-text.prop="$t(subitem.title)" />
-                </v-list-item>
-              </v-list>
-            </v-menu>
-
-          </v-toolbar-items>
-
-
-        </v-container>
-      </v-app-bar>
-      <!---------- End App Bar ---------->
-
+  <div>
+    <div v-for="product in products" :key="product.id">
+      <p>{{ $t(`products.${product.name}`) }}</p>
     </div>
-  </template>
+  </div>
+</template>
 
-  <script>
-/*   import TopNav from './components/Header/TopNav.vue'; */
+<script>
+import { fetchProducts } from '~/services/productService';
 
-  export default {
-/*     components: { TopNav}, */
-    name: "TheHeader",
-    data () {
-      return {
-        drawer: false,
-        right: true,
-        rightDrawer: false,
-        Lang : '',
-        items: [
-          {title: 'home', to: '/'},
-          {title: 'solutions', to: ''},
-          {title: 'Services', to: ''},
-          {title: 'about-Us', to: ''},
-          {title: 'Blog', to: '/blog'},
-          {title: 'Shop', to: '/products'},
-        ],
-
-      }
-    },
-
-  }
-  </script>
-
-  <style scoped lang="scss">
-  .v-toolbar .v-btn:before {
-    background-color: transparent;
-    border-radius: 3px;
-    bottom: unset;
-    color: inherit;
-    content: "";
-    left: 0px;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-  }
-  header.v-toolbar a.v-btn--active {
-    color: #62d0b6 !important;
-  }
-  /*   header.v-toolbar a.v-btn--active:after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #62d0b6;
-    position: absolute;
-    bottom: 15px;
-  } */
-  .logo{
-    .v-image{
-      @include breakpoints-down(md) {
-        max-width: 135px !important;
-      }
-    }
-  }
-  .v-app-bar--is-scrolled{
-    margin-top: 0 !important ;
-  }
-  </style>
+export default {
+  async asyncData({ app }) {
+    const products = await fetchProducts();
+    return { products };
+  },
+};
+</script>

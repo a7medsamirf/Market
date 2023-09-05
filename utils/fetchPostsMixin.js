@@ -1,5 +1,29 @@
-
 export default {
+  async created() {
+    try {
+      this.sale_items = await this.$content("products")
+        .where({ onSale: true })
+        .fetch();
+      
+      this.productsitems = await this.$content("products")
+       .where({ tags: { $containsAny: ['Mobile'] } })
+        .limit(8) // استدعاء اخر 5 مقالات
+        .fetch();
+
+      this.products = await this.$content("products").fetch();
+    } 
+    catch (error) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  data() {
+    return {
+      products: null,
+      sale_items: null,
+      productsitems: null,
+    };
+  },
+  
   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
     const blogs = await $content(`${defaultLocale}/blog`)
@@ -12,8 +36,6 @@ export default {
       .catch(() => {
         error({ statusCode: 404, message: 'Page not found' })
       })
-
-
     return {
       blogs: blogs.map(blog => ({
         ...blog,
@@ -24,7 +46,7 @@ export default {
     }
   },
 
+};
 
-}
 
 

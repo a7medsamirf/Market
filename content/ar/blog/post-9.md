@@ -2,7 +2,7 @@
 title: اشترك في النشرة الإخبارية لدينا
 description: Lorem ipsum dolor sit amet, consecrated advising elite. Sed incident, erat in malady aliquot, est erat faucets purus egret vivre null sem vitae deque.
 slug: post-9
-img: 3.webp
+img: 3.png
 alt: nice image
 author:
   name: ahmed samir

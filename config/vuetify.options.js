@@ -12,7 +12,7 @@ export default {
         BgColor: '#272727',
         Gray50: '#1E1E1E',
         Gray400: '#666',
-        Gray600: '#333',
+        Gray600: '#fff',
         background: '#1D1F1F',
         primary: '#62D0B6',
         secondary: '#333333',

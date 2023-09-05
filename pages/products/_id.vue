@@ -117,8 +117,8 @@ export default {
     return {
       items: [
         {text: 'links.Home', disabled: false, to: '/',},
-        {text: 'links.Shop', disabled: false,to: '/products',},
-        {text: '{blog.title}', disabled: true,to: '/products',},
+        {text: 'links.Shop', to: '/products',},
+        {text: '{product.name}', disabled: true,to: '/products',},
       ],
       product: null,
       loader: null,
@@ -154,7 +154,7 @@ export default {
   }
   .v-icon.social-link:hover
   {
-    background-color: #ff8e28;
+    background-color: #62d0b6;
     color: #fff;
   }
 }
@@ -167,19 +167,19 @@ export default {
     background: #fff;
     padding: 8px;
     font-size: 20px;
-    color: #ff8e28;
+    color: #62d0b6;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
   }
   .v-icon.social-link:hover
   {
-    background-color: #ff8e28;
+    background-color: #62d0b6;
     color: #fff;
   }
 }
 
 .v-tab.v-tab--active {
-  background: #ff8e28 !important;
+  background: #62d0b6 !important;
   color: #fff !important;
 }
 .v-image:hover .v-image__image  {
