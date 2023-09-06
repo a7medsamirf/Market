@@ -1,16 +1,16 @@
 export default {
   async created() {
     try {
-      this.sale_items = await this.$content("products")
+      this.sale_items = await this.$content("product")
         .where({ onSale: true })
         .fetch();
       
-      this.productsitems = await this.$content("products")
-       .where({ tags: { $containsAny: ['Mobile'] } })
+      this.productsitems = await this.$content("product")
+    /*    .where({ tags: { $containsAny: ['Mobile'] } }) */
         .limit(8) // استدعاء اخر 5 مقالات
         .fetch();
 
-      this.products = await this.$content("products").fetch();
+      this.products = await this.$content("product").fetch();
     } 
     catch (error) {
       error({ statusCode: 404, message: 'Page not found' })

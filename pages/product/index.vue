@@ -112,7 +112,7 @@
                     class="el"
                   >
 
-                    <nuxt-link :to="`/products/${p.id}`">
+                    <nuxt-link :to="`/product/${p.id}`">
                     <v-img  :src="require(`~/static/images/shop/${p.image}`)"  height="300">
                       <template slot="placeholder">
                         <v-row
@@ -177,6 +177,7 @@
   </div>
 </template>
 
+
 <script>
 import Social from "~/components/widget/social";
 export default {
@@ -188,7 +189,7 @@ export default {
     }
   },
   async created() {
-    this.products = await this.$content('products').fetch();
+    this.products = await this.$content('product').fetch();
     this.categories = await this.$content('categories').fetch()
     this.tags = await this.$content('tags').fetch()
   },

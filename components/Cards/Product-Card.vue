@@ -25,6 +25,7 @@
 
     <v-img
       height="200"
+      contain
       :src="require(`~/static/images/shop/${product.image}`)"
     >
     <v-chip
@@ -35,7 +36,7 @@
 
   </v-img>
 
-  <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text">  {{ $t('product.name ') }} </v-card-title>
+  <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text">  {{ product.name }} </v-card-title>
 
     <v-card-text class="product-description text-Gray600">
       <p class=""> {{ product.description }}</p>

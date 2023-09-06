@@ -23,3 +23,9 @@ components: {TheHeader, TheFooter, Settings, ThemeSwitcher, MobileBar},
 
 }
 </script>
+
+<style>
+.v-application {
+  background-color: #f1f5f6;
+}
+</style>

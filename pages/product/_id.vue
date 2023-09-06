@@ -107,7 +107,7 @@ import Support from '~/components/products/Support.vue';
 export default {
   components: { Description, Support },
   async created() {
-    let d = await this.$content("products")
+    let d = await this.$content("product")
       .where({ id: parseInt(this.$route.params.id) })
       .limit(1)
       .fetch();
@@ -117,8 +117,8 @@ export default {
     return {
       items: [
         {text: 'links.Home', disabled: false, to: '/',},
-        {text: 'links.Shop', to: '/products',},
-        {text: '{product.name}', disabled: true,to: '/products',},
+        {text: 'links.Shop', to: '/product',},
+        {text: '{product.name}', disabled: true,to: '/product',},
       ],
       product: null,
       loader: null,
@@ -130,7 +130,7 @@ export default {
     const l = this.loader
     this[l] = !this[l]
 
-    setTimeout(() => (this[l] = false), 2000)
+    setTimeout(() => (this[l] = false), 1500)
 
     this.loader = null
   },

@@ -2,9 +2,10 @@
 
     <div class="hidden-md-and-down ">
       <v-app-bar class="top-nav"
-        color="Gray50"
         dense
         elevation="0"
+        color="white"
+        underline
       >
       <v-container  class="pa-0 fill-height">
         <v-btn text>

@@ -25,7 +25,7 @@
 
    <!---------- Start App Bar ---------->
 
-    <v-app-bar  class="nav"  height="85px"  elevation="0" >
+    <v-app-bar  class="nav"  height="85px"  elevation="1" color="white" underline>
       <v-container  class="fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
         <div class="logo">
@@ -48,7 +48,6 @@
 
 
 
-    <theme-switcher />
     <Settings />
     <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
        <v-btn @click.stop="rightDrawer = !rightDrawer"  icon><v-icon size="20">mdi-cart-outline</v-icon></v-btn>
@@ -148,14 +147,14 @@
 </template>
 
 <script>
-import ThemeSwitcher from "~/components/Header/ThemeSwitcher";
+
 import Sidebar from "~/components/Header/Sidebar";
 import Settings from '~/components/Header/Settings.vue';
 import MenuNav from './menu-nav.vue';
 import TopNav from './TopNav.vue';
 
 export default {
-  components: {Sidebar, ThemeSwitcher,Settings, MenuNav, TopNav},
+  components: {Sidebar,Settings, MenuNav, TopNav},
   data () {
     return {
       drawer: false,
@@ -171,7 +170,9 @@ export default {
 
 <style scoped lang="scss">
 @import './Header.scss';
-
+.v-app-bar{
+  transition: all 0.5s ease-in-out;
+}
 header.nav.v-toolbar.v-app-bar.v-app-bar--is-scrolled{
     position: fixed;
     top: 0;

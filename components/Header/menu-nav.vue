@@ -3,8 +3,8 @@
     <div class="hidden-md-and-down ">
       <v-app-bar class="breaking-news"
         dense
-        dark
         elevation="0"
+        color="white"
       >
       <v-container  class="fill-height d-flex justify-center" >
 
@@ -63,7 +63,7 @@ export default {
   data () {
     return {
    items: [
-        {title: 'كل المنتجات', to: '/products'},
+        {title: 'كل المنتجات', to: '/product'},
         {title: 'كل المنتجات', to: '/blog'},
         {title: 'كل المنتجات', to: ''},
         {title: 'About Us', to: '/About-Us'},

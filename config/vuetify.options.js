@@ -6,7 +6,7 @@ if (typeof Storage !== 'undefined') { // eslint-disable-line
 export default {
   rtl: false,
   theme: {
-    dark: darkMode === 'true',
+    dark: darkMode === 'false',
     themes: {
       dark: {
         BgColor: '#272727',
@@ -24,6 +24,7 @@ export default {
         default: '#62D0B6',
       },
       light: {
+        background: '#f1f5f6',
         BgColor: '#fff',
         Gray50: '#F8F8F8',
         Gray400: '#666',
