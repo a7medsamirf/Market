@@ -22,7 +22,7 @@
     <BlogCard :blogs="blogs"/>
       <brands />
 
-  <typography />
+
 
   </div>
 

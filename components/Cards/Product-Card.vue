@@ -16,9 +16,7 @@
                 </v-skeleton-loader>
 
                 <v-card
-                  class="mx-auto Product-Card"
-                  elevation-0
-                  outlined
+                  class="mx-auto Product-Card pa-5 rounded-lg"
                   flat
                   v-if="!data_loaded"
               >
@@ -50,7 +48,7 @@
         nuxt
         :to="`/products/${product.id}`"
       >
-      أضف للسلة  
+      أضف للسلة
       <v-icon size="20">mdi-cart-outline</v-icon>
       </v-btn>
 
@@ -81,7 +79,7 @@
 <script>
 import Title from '../widget/Title.vue'
 export default {
-  
+
     name: "Product-Card",
     components: {Title },
     props: { productsitems: Array },

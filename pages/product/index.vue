@@ -20,7 +20,7 @@
     <v-container>
       <v-row dense>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <div class="sidebar-wrap mx-3">
             <div class="sidebar-widget mb-5">
               <v-text-field
@@ -99,21 +99,19 @@
         </v-col>
 
 
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="9">
           <v-row>
 
             <template v-for="(p, i) in filteredProducts">
               <v-fade-transition :key="`product${p.id}-${i}`">
-                <v-col cols="12" md="6">
+                <v-col cols="12" md="4">
                   <v-card
-                    outlined
-                    elevation-0
-                    nuxt
-                    class="el"
+                  class="mx-auto Product-Card pa-5 rounded-lg"
+                  flat
                   >
 
                     <nuxt-link :to="`/product/${p.id}`">
-                    <v-img  :src="require(`~/static/images/shop/${p.image}`)"  height="300">
+                    <v-img  :src="require(`~/static/images/shop/${p.image}`)" contain  height="300">
                       <template slot="placeholder">
                         <v-row
                           class="fill-height"
@@ -131,6 +129,9 @@
                     </v-img>
                     </nuxt-link>
                     <v-card-title class="text-md-body-1 font-weight-bold">{{p.name}}</v-card-title>
+                    <v-card-text class="product-description text-Gray600">
+      <p class=""> {{ p.description }}</p>
+    </v-card-text>
                     <v-card-subtitle class="primary--text pb-3">
                       ${{ p.price }}
                     </v-card-subtitle>

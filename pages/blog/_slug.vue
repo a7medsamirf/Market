@@ -28,9 +28,9 @@
             <div class="blog-title pa-5">
               <h2 class="use-text-title2 text-color-default text-xs-center">{{ blog.title }}</h2>
 
-      
 
-          
+
+
             </div>
             <v-divider></v-divider>
 
@@ -46,7 +46,7 @@
                 active-class="deep-purple accent-4 white--text"
                 column
               >
-        
+
                 <v-chip>  <span><v-icon small color="primary" class="fi fi-rr-calendar mr-3"></v-icon></span>
                   {{ formatDate(blog.updatedAt) }}</v-chip>
               </v-chip-group>
@@ -151,7 +151,6 @@ export default {
 <style lang="scss">
 .theme--light.v-application .slug-wrap
 {
-  background: #faf7f2;
   .post-content {
     background-color: #fff;
   }

@@ -30,7 +30,7 @@ export default {
          /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
       /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
       .sortBy('createdAt', 'desc')
-      .limit(3) // استدعاء اخر 5 مقالات
+      .limit(4) // استدعاء اخر 5 مقالات
       .fetch()
 
       .catch(() => {

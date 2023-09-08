@@ -158,7 +158,10 @@ export default {
        .fetch()
 
     return {
-      blogs: blogs.map(blog => ({blog, path: blog.path.replace(`/${defaultLocale}`, ''),})),
+      blogs: blogs.map(blog => ({
+        ...blog,
+        path: blog.path.replace(`/${defaultLocale}`, ''),
+      })),
       tags, 
       data_loaded : true,
       PageTitle: 'Our Blog',

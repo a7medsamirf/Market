@@ -180,6 +180,7 @@ header.nav.v-toolbar.v-app-bar.v-app-bar--is-scrolled{
     animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
     transition: all 0.5s ease-in-out;
     transform: translateY(100px);
+    box-shadow: 0 0 25px 0 rgba(45,69,95,.1)!important;
 }
 
 

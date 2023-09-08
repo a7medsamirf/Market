@@ -7,15 +7,15 @@
 
 
       <v-row class="mt-10">
-        <v-col cols="12" lg="4" md="6" sm="6"  v-for="blog in blogs" :key="blog.slug">
+        <v-col cols="12" lg="3" md="4" sm="6"  v-for="blog in blogs" :key="blog.slug">
           <v-skeleton-loader
                   v-if="data_loaded"
                   type=" card-avatar, article, actions"
                 >
                 </v-skeleton-loader>
           <v-card
-          elevation-0
-                  flat
+          class="mx-auto pa-5 rounded-lg"
+          flat
                   v-if="!data_loaded"
   >
   <NuxtLink :to="localePath(blog.path)">

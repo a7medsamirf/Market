@@ -13,7 +13,7 @@
 
       <div class="comment-block">
 
-        <v-card class="mx-auto pa-5 rounded-lg mt-10" outlined >
+        <v-card class="mx-auto pa-5 rounded-lg mt-10"  flat>
         <div class="person-block">
 
           <v-list-item >
