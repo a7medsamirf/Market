@@ -24,7 +24,7 @@
 
 
    <!---------- Start App Bar ---------->
-
+   <v-divider class="white--text"></v-divider>
     <v-app-bar  class="nav"  height="85px"  elevation="1" color="white" underline>
       <v-container  class="fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
@@ -56,10 +56,11 @@
 
       </v-container>
     </v-app-bar>
+    
    <!---------- End App Bar ---------->
 
     <menu-nav />
-
+    <v-divider class="white--text"></v-divider>
          <!---------- Start Cart Drawer ---------->
         <v-navigation-drawer width="350" v-model="rightDrawer" :right="$vuetify.rtl" fixed  temporary >
        <v-list-item class="pa-3">
@@ -115,7 +116,7 @@
                           right
                           icon
                         >
-                          <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
+                          <v-icon right color="error" size="18">mdi-trash-can-outline</v-icon>
                         </v-btn>
                       </v-row>
                     </v-list-item-content>

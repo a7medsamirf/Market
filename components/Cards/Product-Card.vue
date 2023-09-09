@@ -16,7 +16,7 @@
                 </v-skeleton-loader>
 
                 <v-card
-                  class="mx-auto Product-Card pa-5 rounded-lg"
+                  class="mx-auto Product-Card rounded-lg"
                   flat
                   v-if="!data_loaded"
               >
@@ -27,10 +27,10 @@
       :src="require(`~/static/images/shop/${product.image}`)"
     >
     <v-chip
-      class="ma-2"
+      class="ma-4"
       color="primary"
       label
-      text-color="white">  {{ $formatMoney(product.price) }}   </v-chip>
+      text-color="white">  {{ $formatMoney(product.price) }}  </v-chip>
 
   </v-img>
 
@@ -42,23 +42,36 @@
 
     <v-card-actions>
       <v-btn
+        class="addcart font-weight-bold rounded-lg pa-5 hidden-md-and-down"
+        :to="`/product/${product.id}`"
+        flat
         outlined
-        class="pa-5"
-        depressed
-        nuxt
-        :to="`/products/${product.id}`"
+        width="70%"
       >
+      <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
       أضف للسلة
-      <v-icon size="20">mdi-cart-outline</v-icon>
       </v-btn>
+
+      <v-btn
+        class="addcart font-weight-bold rounded-lg pa-5 hidden-lg-and-up"
+        :to="`/product/${product.id}`"
+        flat
+        outlined
+        width="70%"
+      >
+      <v-icon right  class="fa-regular fa-bag-shopping fa-lg pa-5"></v-icon>
+      
+ 
+      </v-btn>
+
 
 
       <v-spacer> </v-spacer>
       <v-btn
         outlined
-        class="pa-5"
+        class="rounded-lg pa-5"
       >
-      <i class="fi fi-rr-heart"></i>
+      <i class="fa-regular fa-heart fa-lg"></i>
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -103,13 +116,30 @@ export default {
 }
 </script>
 <style>
-
-.product-description p {
+.Product-Card {
+  border: 1px solid #fff;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+.v-btn{
+  border: 1px solid #EEEEEE;
+}
+&:hover {
+  border: 1px solid #62D0B6;
+  .v-btn.addcart{
+    background-color: #62D0B6;
+    color: #fff;
+    border: 1px solid #62D0B6;
+    transition: all 0.5s ease-in-out;
+  }
+}
+}
+
 </style>
 
 

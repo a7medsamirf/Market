@@ -12,7 +12,11 @@
     "Brands-Title":"commercial brands",
     "Brands-Description":"You can shop through brands.",
     "Review-Title":"customer reviews",
-    "Review-Description":"Some user opinions and comments are reviewed"
+    "Review-Description":"Some user opinions and comments are reviewed",
+    "Category-Title":"Shop by categories",
+    "Category-Description":"Shop the latest featured products added new",
+    "Blog-Title":" Latest articles",
+    "Blog-Description":" احدث المقالات المضافة حديثا"
   },
   "links":{
       "Home": "Home",

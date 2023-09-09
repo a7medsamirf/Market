@@ -18,6 +18,7 @@
 
     <banner-1 />
 
+  <Category />
 
     <BlogCard :blogs="blogs"/>
       <brands />
@@ -40,9 +41,10 @@ import Review from '~/components/Sliders/Review.vue'
 import Features from '~/components/section/features.vue'
 import BlogCard from '~/components/Cards/Blog-Card.vue'
 import ProductCard from '~/components/Cards/Product-Card.vue';
+import Category from '~/components/section/Category.vue';
 export default {
   name: 'IndexPage',
-  components: {Brands, Banner1, banner2, Review, HomeCarousel, Features, BlogCard , ProductCard},
+  components: { Brands, Banner1, banner2, Review, HomeCarousel, Features, BlogCard, ProductCard, Category },
   mixins: [fetchPostsMixin],
 
 }

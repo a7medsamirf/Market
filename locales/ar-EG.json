@@ -12,7 +12,13 @@
   "Brands-Title":"الماركات التجارية",
   "Brands-Description":"يمكنك التسوق من خلال الماركات التجارية",
   "Review-Title":"آراء العملاء",
-  "Review-Description":"بيتم استعراض بعض آراء وتعليقات المستخدمين"
+  "Review-Description":"بيتم استعراض بعض آراء وتعليقات المستخدمين",
+  "Category-Title":" تسوق حسب الفئات",
+  "Category-Description":"تسوق احدث المنتجات المميزة المضافة جديد",
+  "Blog-Title":"أحدث المقالات",
+  "Blog-Description":" احدث المقالات المضافة حديثا"
+  
+
 },
   "links":{
     "Home": "الرئيسية",

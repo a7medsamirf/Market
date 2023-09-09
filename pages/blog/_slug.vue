@@ -116,7 +116,7 @@ import Author from "~/components/blog/Author";
 import AppSearchInput from '~/components/widget/AppSearchInput.vue';
 export default {
   components: {Author, PrevNext, BlogComment, AppSearchInput},
-  async asyncData({ $content, params, app, error, route, redirect }) {
+  async asyncData({ $content, params, app, error }) {
     const slug = params.slug;
     const blog = await $content(`${app.i18n.locale}/blog`, slug)
     .fetch()

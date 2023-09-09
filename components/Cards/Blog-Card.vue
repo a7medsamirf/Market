@@ -1,13 +1,13 @@
 <template lang="">
   <div class="pt-20">
     <v-container class="fill-height">
-      <Title :SectionTitle="$t('sectiontitle.Brands-Title')" :SectioDesc="$t('sectiontitle.Brands-Description')" />
+      <Title :SectionTitle="$t('sectiontitle.Blog-Title')" :SectioDesc="$t('sectiontitle.Blog-Description')" />
       <v-spacer></v-spacer>
       <v-btn :to="localePath('/blog')" color="primary" outlined class="white--text pa-5">عرض الكل <v-icon right dark> mdi-cloud-upload </v-icon> </v-btn>
 
 
       <v-row class="mt-10">
-        <v-col cols="12" lg="3" md="4" sm="6"  v-for="blog in blogs" :key="blog.slug">
+        <v-col cols="12" lg="4" md="6" sm="12"  v-for="blog in blogs" :key="blog.slug">
           <v-skeleton-loader
                   v-if="data_loaded"
                   type=" card-avatar, article, actions"

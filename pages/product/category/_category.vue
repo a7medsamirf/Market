@@ -25,7 +25,7 @@
                       class="el"
                     >
 
-                      <nuxt-link :to="`/products/${product.id}`">
+                      <nuxt-link :to="`/product/${product.id}`">
                         <v-img  :src="require(`~/static/images/shop/${product.image}`)"  height="300">
                           <template slot="placeholder">
                             <v-row

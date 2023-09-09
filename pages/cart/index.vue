@@ -29,7 +29,7 @@
 
       <v-col cols="12" md="12" v-if="$store.state.cart.cart.length > 0">
 
-<v-card v-for="(c, i) in $store.state.cart.cart" :key="c" class="mx-auto mb-3" outlined elevation-0>
+<v-card v-for="(c, i) in $store.state.cart.cart" :key="c" class="mx-auto mb-3" flat>
   <v-list-item three-line :key="`cartItem${i}`">
     <v-list-item-avatar tile size="70" color="grey">
       <v-img class="rounded-lg" :title="c.product.name" height="100" width="100"
@@ -73,7 +73,7 @@
           <v-card
   class="mx-auto"
   max-width="344"
-  outlined
+  flat
 >
   <v-list-item three-line>
     <v-list-item-content>
@@ -95,6 +95,7 @@
                 min-width="150"
                 min-height="45"
                 color="primary"
+                elevation="0"
               >Checkout  {{ $formatMoney ($store.state.cart.Total) }} </v-btn>
             </div>
   </v-card-actions>

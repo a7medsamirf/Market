@@ -21,6 +21,7 @@
           <v-col cols="12" lg="6" md="12">
             <div class="product-img">
         <v-img width="100%" height="500"  class="el rounded-lg"  :src="require(`~/static/images/shop/${product.image}`)"></v-img>
+
             <div class="sb-badge">
               <v-chip
                 elevation="0"
@@ -30,13 +31,17 @@
                 v-for="(tag, i) in product.tags"
                 :key="`prod${product.id}-${i}`"
               >
+              <NuxtLink :to="`/product/tag/${tag.id}`" class="white--text">
+                  <v-icon left text-color="white">
+                    mdi-label
+                  </v-icon>
+                  {{ tag }}
+                </NuxtLink>
 
-                <v-icon left text-color="white">
-                  mdi-label
-                </v-icon>
-                {{ tag }}
+       
               </v-chip>
             </div>
+            
             </div>
           </v-col>
 
