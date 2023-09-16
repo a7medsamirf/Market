@@ -6,7 +6,7 @@
   <v-card
     class="mx-auto py-3"
     outlined
-    elevation-0
+    flat
   >
     <v-list-item three-line>
           <v-list-item-avatar

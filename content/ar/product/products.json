@@ -13,7 +13,7 @@
   },
   {
     "id": 2,
-    "name": "Lady Luck Is Smiling",
+    "name": "نص تجريبى",
     "onSale": true,
     "tags": ["Chicjken"],
     "image": "2.png",
@@ -24,7 +24,7 @@
   },
   {
     "id": 3,
-    "name": "Green Nike Zoom",
+    "name": "نص تجريبى",
     "onSale": true,
     "tags": ["burger"],
     "image": "3.png",
@@ -35,7 +35,7 @@
   },
   {
     "id": 4,
-    "name": "New Home Living Room Set",
+    "name": "نص تجريبى",
     "onSale": false,
     "tags": ["burger"],
     "image": "4.png",
@@ -46,7 +46,7 @@
   },
   {
     "id": 5,
-    "name": "Classic Man Watch",
+    "name": "نص تجريبى",
     "onSale": true,
     "tags": ["Chicjken"],
     "image": "5.png",
@@ -57,7 +57,7 @@
   },
   {
     "id": 6,
-    "name": "Classic Man Watch Green",
+    "name": "نص تجريبى",
     "onSale": true,
     "tags": ["burger"],
     "image": "6.png",

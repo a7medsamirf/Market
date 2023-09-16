@@ -31,7 +31,7 @@
                 </v-skeleton-loader>
                 <v-card
                   outlined
-                  elevation-0
+                  flat
                   v-if="!data_loaded"
                 >
 

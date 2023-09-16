@@ -21,7 +21,6 @@
               <v-col :key="`cartItem${i}`" class="py-1">
                 <v-card
                   outlined
-                  elevation-0
                   flat
                 >
                   <v-list-item>

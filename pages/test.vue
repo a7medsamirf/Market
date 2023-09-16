@@ -1,18 +1,35 @@
 <template>
   <div>
-    <div v-for="product in products" :key="product.id">
-      <p>{{ $t(`products.${product.name}`) }}</p>
-    </div>
+    <h1>Test</h1>
+
+    <Product :products="products" />
+
   </div>
 </template>
 
 <script>
-import { fetchProducts } from '~/services/productService';
-
+import Product from '~/components/Cards/Product.vue';
 export default {
-  async asyncData({ app }) {
-    const products = await fetchProducts();
-    return { products };
+  name: 'IndexPage',
+  components: { Product },
+  async asyncData({ $content, app, error}) {
+    const defaultLocale = app.i18n.locale;
+    const products = await $content(`${defaultLocale}/product`)
+      .sortBy('createdAt', 'desc')
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
+    return {
+      products: products.map(product => ({
+        ...product,
+        path: product.path.replace(`/${defaultLocale}`, ''),
+      })),
+      data_loaded : true,
+
+    }
   },
-};
+
+
+}
 </script>

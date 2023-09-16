@@ -1,13 +1,13 @@
 <template lang="">
   <div>
-    <v-card class="rounded-xl elevation-0 post "
+    <v-card class="rounded-xl flat post "
 rounded-xl
-elevation-0
+flat
 >
 <NuxtLink :to="localePath(blog.path)">
 <div class="postImage">
 <v-img
-class="rounded-xl elevation-0 lazy"
+class="rounded-xl flat lazy"
 v-if="blog.img"
 :src="require(`~/static/images/blog/${blog.img}`)"
 :alt="blog.alt"

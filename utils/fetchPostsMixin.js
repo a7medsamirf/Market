@@ -1,4 +1,6 @@
 export default {
+
+  
   async created() {
     try {
       this.sale_items = await this.$content("product")

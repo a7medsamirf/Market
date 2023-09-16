@@ -30,7 +30,7 @@
                 <v-card
                   v-if="!data_loaded"
                    outlined
-                    elevation-0
+                    flat
                 >
 
 

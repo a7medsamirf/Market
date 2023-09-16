@@ -10,7 +10,7 @@
             <v-card
               class="author-box"
                 outlined
-                elevation-0
+                flat
             >
               <NuxtLink
                 :to="`/blog/author/${author.name}`"

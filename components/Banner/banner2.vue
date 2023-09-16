@@ -37,7 +37,7 @@ import imgAPI from '~/server/api/imgAPI'
     data: () => ({
       cards: [
         { title: 'أفضل صوت نقى', subtitle: 'تسوق الأن', images: imgAPI.Banner[0]},
-        { title: 'أفضل صوت نقى', subtitle: 'تسوق الأن', images: imgAPI.Banner[1]},
+        { title: '  صوت نقى', subtitle: 'تسوق الأن', images: imgAPI.Banner[1]},
       ],
     }),
   }

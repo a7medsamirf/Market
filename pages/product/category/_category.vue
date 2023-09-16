@@ -20,7 +20,7 @@
                   <v-col cols="12" md="6">
                     <v-card
                       outlined
-                      elevation-0
+                      flat
                       nuxt
                       class="el"
                     >

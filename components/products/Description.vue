@@ -30,7 +30,7 @@
         <slick ref="slick" :options="slickOptions">
           <v-card
            outlined
-           elevation-0 
+           flat 
            class="mx-auto pa-5"
            v-for="(review, index) in reviews" :key="index">
             <v-list-item three-line>
