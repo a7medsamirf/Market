@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="img-Banner">
   <v-container >
       <v-row>
         <v-col cols="12" lg="6" md="6" sm="12"  v-for="card in cards" :key="card.title">
@@ -43,6 +43,14 @@ import imgAPI from '~/server/api/imgAPI'
   }
 </script>
 
-<style scoped>
+<style lang="scss">
+.v-application--is-ltr{
+.img-Banner{
+  .v-image{
+    @include rtl-flip;
+  }
+}
+}
+
 
 </style>

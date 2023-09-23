@@ -24,7 +24,7 @@
           </v-list-item>
 
           <v-list-item three-line>
-            <v-avatar class="photo mr-3" width="70" height="70">
+            <v-avatar class="photo" width="70" height="70">
 
             <v-img
                 :alt="review.title"
@@ -133,18 +133,15 @@ data(){
 
 <style scoped lang="scss">
 .ReviewCard {
-.comment-block {
-  position: relative;
-  margin: 5px ;
+    .comment-block{
+        position: relative;
+        margin: 5px ;
+        .person-block{
+            .v-avatar{
+                @include rtl-sass-margin-right(12px);
+            }
+        }
+      
+    }
 }
-
-}
-
-
-h2{
-  @include breakpoints-down(xs) {
-  width: 65% !important;
-}
-}
-
 </style>

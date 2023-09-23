@@ -1,0 +1,24 @@
+.v-application--is-rtl{
+    .ReviewCard {
+        .comment-block{
+            text-align: right !important;
+            .person-block{
+                .v-list-item {
+                    display: flex;
+                    flex: 1 1 100%;
+                    flex-direction: row-reverse;
+                }
+            }
+          
+        }
+    }
+.images-wrapper{
+    flex: 1 1 100%;
+    flex-direction: row-reverse;
+}
+  
+
+
+
+}
+

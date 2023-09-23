@@ -5,19 +5,19 @@
 
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background: $dark-surface;
+  background: $primary-color;
 }
 
 ::-moz-selection,
 -webkit-::-moz-selection {
-  background-color: $dark-surface;
+  background-color: $primary-color;
   color: $palette-common-white !important;
 }
 
 ::selection,
 -webkit-::selection,
 ::-moz-selection {
-  background-color: $dark-surface;
+  background-color: $primary-color;
   color: $palette-common-white !important;
 }
 

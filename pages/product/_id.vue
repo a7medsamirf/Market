@@ -20,7 +20,7 @@
         <v-row v-if="product"  justify="center">
           <v-col cols="12" lg="6" md="12">
             <div class="product-img">
-        <v-img width="100%" height="500"  class="el rounded-lg"  :src="require(`~/static/images/shop/${product.image}`)"></v-img>
+        <v-img width="100%" height="500" contain  class="el rounded-lg"  :src="require(`~/static/images/shop/${product.image}`)" />
 
             <div class="sb-badge">
               <v-chip
@@ -70,16 +70,23 @@
               {{ product.description }}
             </p>
             <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
+
               <v-btn
-                :loading="loading"
+              class="addcart font-weight-bold rounded-lg pa-5"
+               :loading="loading"
                 :disabled="loading"
                 @click="$store.commit('cart/AddToCart', product); loader = 'loading' "
-                class="ma-2 text-capitalize rounded-0 order-btn"
-                color="primary"
-                large
-                elevation="0"
-              >
-                <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
+              outlined
+   
+            >
+            <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
+            {{ $t('common.AddToCart') }}
+        </v-btn>
+
+
+
+
+
             </v-card-actions>
 
             <v-card-actions>
@@ -206,4 +213,14 @@ export default {
     text-decoration: line-through;
     margin-right: 6px;
 }
+
+
+  .v-btn.addcart{
+    background-color: #62D0B6;
+    color: #fff;
+    border: 1px solid #62D0B6;
+    transition: all 0.5s ease-in-out;
+  }
+
+
 </style>

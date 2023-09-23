@@ -21,7 +21,7 @@
         </v-row>
       </template>
       <v-carousel-item v-for="(product, i) in sale_items" :key="`saleitem${i}`">
-        <v-img height="100vh" :src="require(`~/static/images/shop/${product.image}`)" >
+        <v-img height="100vh" contain :src="require(`~/static/images/shop/${product.image}`)" >
             
           <v-container class="fill-height">
             <v-row dense align="center">
@@ -40,11 +40,12 @@
                   <v-btn
                     depressed
                     nuxt
-                    :to="`/products/${product.id}`"
+                    :to="`/product/${product.id}`"
                     color="primary"
                     class="text-capitalize"
                     min-height="40"
-                    >Check It Out</v-btn >
+                    >Check It Out
+                  </v-btn >
                 </div>
               </v-col>
             </v-row>

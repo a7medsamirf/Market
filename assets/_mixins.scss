@@ -1,13 +1,14 @@
 /* Margin left and right */
-@mixin margin-left($val) {
+ @mixin margin-left($val) {
   @include rtl-sass-margin-left($val);
 }
 
 @mixin margin-right($val) {
   @include rtl-sass-margin-right($val);
 }
-
+ 
 /* Padding left and right */
+
 @mixin padding-left($val) {
   @include rtl-sass-padding-left($val);
 }
@@ -257,6 +258,9 @@
 
 @mixin use-rtl($property, $value) {
   .v-application--is-rtl & {
+    #{$property}: $value
+  }
+  .v-application--is-ltr & {
     #{$property}: $value
   }
 }

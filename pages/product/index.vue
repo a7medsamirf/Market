@@ -107,11 +107,11 @@
                 <v-col cols="12" md="4">
                   <v-card
                   class="mx-auto Product-Card pa-5 rounded-lg"
-                  flat
+                  outlined
                   >
 
                     <nuxt-link :to="`/product/${p.id}`">
-                    <v-img  :src="require(`~/static/images/shop/${p.image}`)" contain  height="300">
+                    <v-img  :src="require(`~/static/images/shop/${p.image}`)" contain  height="200">
                       <template slot="placeholder">
                         <v-row
                           class="fill-height"
@@ -155,16 +155,26 @@
                       </v-chip>
                     </v-card-text>
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
-                      <v-btn
+                        <v-btn
+                          class="addcart font-weight-bold rounded-lg pa-5 hidden-md-and-down"
                           :loading="loading&&p.id == product.id"
                           :disabled="loading&&p.id==product.id"
                           @click="AddToCart(p)"
-                          class="ma-2 text-capitalize rounded-0 order-btn"
-                          color="primary"
-                          large
-                          elevation="0"
-                      >
-                        <v-icon left>mdi-shopping-outline</v-icon>Add To Cart</v-btn>
+                          outlined
+                          width="70%"
+                        >
+                        <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
+                        {{ $t('common.AddToCart') }}
+                        </v-btn>
+                        <v-spacer> </v-spacer>
+      <v-btn
+        outlined
+        class="rounded-lg pa-5"
+      >
+      <i class="fa-regular fa-heart fa-lg"></i>
+      </v-btn>
+
+
                     </v-card-actions>
                   </v-card>
                 </v-col>
@@ -250,7 +260,12 @@ export default {
 </script>
 
 <style>
-
+  .v-btn.addcart{
+    background-color: #62D0B6;
+    color: #fff;
+    border: 1px solid #62D0B6;
+    transition: all 0.5s ease-in-out;
+  }
 </style>
 
 

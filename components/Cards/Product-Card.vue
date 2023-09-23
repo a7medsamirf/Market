@@ -8,7 +8,7 @@
 
 
       <v-row class="mt-10">
-        <v-col cols="12" lg="3" md="3" sm="6" v-for="(product, i) in productsitems" :key="`productsitems${i}`">
+        <v-col cols="12" lg="3" md="4" sm="6" v-for="(product, i) in productsitems" :key="`productsitems${i}`">
           <v-skeleton-loader
                   v-if="data_loaded"
                   type=" card-avatar, article, actions"
@@ -113,7 +113,7 @@ export default {
 
 }
 </script>
-<style>
+<style lang="scss">
 .Product-Card {
   border: 1px solid #fff;
   transition: all 0.5s ease-in-out;

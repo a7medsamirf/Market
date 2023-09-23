@@ -30,8 +30,8 @@
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
         <div class="logo">
           <NuxtLink :to="localePath('/')" >
-          <v-img v-if="!$vuetify.theme.dark" max-height="50" max-width="170" :src="require('static/images/logo/dark-logo.png')" ></v-img>
-          <v-img v-else max-height="50" max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
+          <v-img v-if="!$vuetify.theme.dark" contain max-height="50" max-width="170" :src="require('static/images/logo/dark-logo.png')" ></v-img>
+          <v-img v-else max-height="50" contain max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
         </NuxtLink>
         </div>
     <v-text-field
