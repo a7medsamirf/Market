@@ -17,7 +17,7 @@
   
                   <v-card
                   outlined
-                    class="mx-auto Product-Card rounded-lg"
+                    class="mx-auto Product-Card rounded"
                     v-if="!data_loaded"
                 >
   
@@ -43,7 +43,7 @@
 
       <v-card-actions>
         <v-btn
-          class="addcart font-weight-bold rounded-lg pa-5 hidden-md-and-down"
+          class="addcart font-weight-bold rounded pa-5 hidden-md-and-down"
           :to="`/product/${product.id}`"
           flat
           outlined
@@ -54,7 +54,7 @@
         </v-btn>
   
         <v-btn
-          class="addcart font-weight-bold rounded-lg pa-5 hidden-lg-and-up"
+          class="addcart font-weight-bold rounded pa-5 hidden-lg-and-up"
           :to="`/product/${product.id}`"
           flat
           outlined
@@ -70,7 +70,7 @@
         <v-spacer> </v-spacer>
         <v-btn
           outlined
-          class="rounded-lg pa-5"
+          class="rounded pa-5"
         >
         <i class="fa-regular fa-heart fa-lg"></i>
         </v-btn>

@@ -11,9 +11,14 @@
         <v-toolbar-items
          class="hidden-md-and-down DesktopNav"
         v-for="(item, i) in items" :key="i">
-           <v-btn text v-if="!item.subitems" :to="item.to" router>
-           {{ item.title }}
-           </v-btn>
+        <v-btn text
+                 v-if="!item.subitems"
+                 exact
+                 :to="localePath(item.to)" router>
+                 {{ item.title }}
+          </v-btn>
+
+  
 
           <v-menu
           transition="slide-y-transition"
@@ -65,7 +70,7 @@ export default {
    items: [
         {title: 'كل المنتجات', to: '/product'},
         {title: 'كل المنتجات', to: '/blog'},
-        {title: 'كل المنتجات', to: ''},
+        {title: 'أختبار', to: '/test'},
         {title: 'About Us', to: '/About-Us'},
         { title: 'Pages',
           subitems: [

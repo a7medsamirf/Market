@@ -20,7 +20,7 @@
         <v-row v-if="product"  justify="center">
           <v-col cols="12" lg="6" md="12">
             <div class="product-img">
-        <v-img width="100%" height="500" contain  class="el rounded-lg"  :src="require(`~/static/images/shop/${product.image}`)" />
+        <v-img width="100%" height="500" contain  class="el rounded"  :src="require(`~/static/images/shop/${product.image}`)" />
 
             <div class="sb-badge">
               <v-chip
@@ -72,7 +72,7 @@
             <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
 
               <v-btn
-              class="addcart font-weight-bold rounded-lg pa-5"
+              class="addcart font-weight-bold rounded pa-5"
                :loading="loading"
                 :disabled="loading"
                 @click="$store.commit('cart/AddToCart', product); loader = 'loading' "

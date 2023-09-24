@@ -28,9 +28,9 @@
                       tile
                       size="80"
                       color="grey"
-                      class="rounded-lg"
+                      class="rounded"
                     >
-                      <v-img class="rounded-lg" :title="c.product.name" :alt="c.product.name" height="80" :src="require(`~/static/images/shop/${c.product.image}`)" ></v-img>
+                      <v-img class="rounded" :title="c.product.name" :alt="c.product.name" height="80" :src="require(`~/static/images/shop/${c.product.image}`)" ></v-img>
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title class="text-p mb-1">{{ c.product.name }}</v-list-item-title>

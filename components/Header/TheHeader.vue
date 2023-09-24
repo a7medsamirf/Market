@@ -61,6 +61,8 @@
 
     <menu-nav />
     <v-divider class="white--text"></v-divider>
+
+
          <!---------- Start Cart Drawer ---------->
         <v-navigation-drawer width="350" v-model="rightDrawer" :right="$vuetify.rtl" fixed  temporary >
        <v-list-item class="pa-3">
@@ -88,10 +90,13 @@
                     <v-list-item-avatar
                       tile
                       size="80"
-                      color="grey"
-                      class="rounded-lg"
+                      class="rounded"
                     >
-                      <v-img class="rounded-lg" :title="cartItem.product.name" :alt="cartItem.product.name" height="80" :src="require(`~/static/images/shop/${cartItem.product.image}`)" ></v-img>
+                      <v-img 
+                          class="rounded" :title="cartItem.product.name"
+                          :alt="cartItem.product.name" height="80" contain
+                          :src="require(`~/static/images/shop/${cartItem.product.image}`)" />
+
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title class="text-p mb-1">{{ cartItem.product.name }}</v-list-item-title>
@@ -103,7 +108,9 @@
                         <span class="mx-2">{{ cartItem.quantity }}</span>
                         <v-btn color="primary"  @click="$store.commit('cart/DecreaseItemCount', i)" icon>
                           <v-icon size="20">mdi-minus-circle</v-icon>
-                        </v-btn></v-list-item-subtitle>
+                        </v-btn>
+                      </v-list-item-subtitle>
+                      <v-spacer></v-spacer>
                       <v-row
                         align="center"
                         justify="end"
@@ -112,10 +119,10 @@
                           @click="$store.commit('cart/RemoveCartItem', i)"
                           absolute
                           bottom
-                          right
+                          :right="$vuetify.ltr"
                           icon
                         >
-                          <v-icon right color="error" size="18">mdi-trash-can-outline</v-icon>
+                          <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
                         </v-btn>
                       </v-row>
                     </v-list-item-content>

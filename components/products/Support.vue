@@ -4,7 +4,7 @@
     <v-row>
     <v-col lg="4" v-for="(support, index) in supports" :key="index">
   <v-card
-    class="mx-auto py-3"
+    class="mx-auto py-3 rounded"
     outlined
     flat
   >
@@ -47,7 +47,6 @@ export default {
   }
 }
 </script>
-
 
 
 <style>

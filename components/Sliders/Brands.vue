@@ -7,7 +7,7 @@
         <slick ref="slick" :options="slickOptions">
           <div class="Brand" v-for="(Brand, index) in BrandData" :key="index">
             <div class="Brand-block">
-              <v-card class="mx-auto pa-5 rounded-lg mt-10" outlined>
+              <v-card class="mx-auto pa-5 rounded mt-10" outlined>
                 <v-img style="filter: grayscale(100%);"  :src="require(`~/static/images/Brands/${Brand.images}`)">
                 </v-img>
               </v-card>

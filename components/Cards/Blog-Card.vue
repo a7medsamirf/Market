@@ -11,7 +11,7 @@
         <v-col cols="12" lg="4" md="6" sm="12" v-for="blog in blogs" :key="blog.slug">
           <v-skeleton-loader v-if="data_loaded" type=" card-avatar, article, actions">
           </v-skeleton-loader>
-          <v-card class="mx-auto pa-5 rounded-lg" outlined v-if="!data_loaded">
+          <v-card class="mx-auto pa-5 rounded" outlined v-if="!data_loaded">
             <NuxtLink :to="localePath(blog.path)">
               <v-img v-if="blog.img" :src="require(`~/static/images/blog/${blog.img}`)" :alt="blog.alt"
                 class="white--text" height="250px">

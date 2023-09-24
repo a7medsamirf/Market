@@ -7,7 +7,7 @@
           <v-row>
             <v-col cols="12" lg="5" md="6" sm="12">
               <v-card
-      class="mx-auto py-3 rounded-lg email-card white--text" 
+      class="mx-auto py-3 rounded email-card white--text" 
       flat
     >
       <v-list-item three-line>

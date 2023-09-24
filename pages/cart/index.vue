@@ -29,10 +29,12 @@
 
       <v-col cols="12" md="12" v-if="$store.state.cart.cart.length > 0">
 
-<v-card v-for="(c, i) in $store.state.cart.cart" :key="c" class="mx-auto mb-3" flat>
+<v-card v-for="(c, i) in $store.state.cart.cart" :key="c"
+ class="mx-auto mb-3 rounded" outlined flat>
+
   <v-list-item three-line :key="`cartItem${i}`">
-    <v-list-item-avatar tile size="70" color="grey">
-      <v-img class="rounded-lg" :title="c.product.name" height="100" width="100"
+    <v-list-item-avatar tile size="70" >
+      <v-img class="rounded" :title="c.product.name" height="100" width="100" contain
         :src="require(`~/static/images/shop/${c.product.image}`)">
       </v-img>
     </v-list-item-avatar>
@@ -71,15 +73,17 @@
       <v-col cols="12" md="3" v-if="$store.state.cart.cart.length > 0">
         <div class="sidebar-wrap mx-3">
           <v-card
-  class="mx-auto"
-  max-width="344"
-  flat
->
-  <v-list-item three-line>
-    <v-list-item-content>
-      <v-list-item-title class="text-h6">أجمالى الطلب</v-list-item-title>
+          class="mx-auto rounded"
+          max-width="344"
+          flat
+          outlined>
 
+  <v-list-item >
+    <v-list-item-content>
+      <v-list-item-title > ملخص الطلب </v-list-item-title>
+      <v-list-item-title class="text-h6">أجمالى الطلب</v-list-item-title>
     </v-list-item-content>
+
     <v-list-item-subtitle >مجموع المنتجات</v-list-item-subtitle>
     <v-spacer></v-spacer>
       <span>{{ $formatMoney ($store.state.cart.Total) }}</span>
@@ -89,8 +93,7 @@
   <v-card-actions>
     <div class="mb-3" >
               <v-btn
-                
-                nuxt
+                class="rounded"
                 to="/cart/confirm"
                 min-width="150"
                 min-height="45"

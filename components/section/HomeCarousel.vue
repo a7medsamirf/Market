@@ -27,7 +27,7 @@
             <v-row dense align="center">
               <v-col md="7">
                 <div
-                  class="pa-md-10 pa-5 rounded-lg black--text text-center text-md-left"
+                  class="pa-md-10 pa-5 rounded black--text text-center text-md-left"
                   style="background-color: rgba(255, 255, 255, 0.8)"
                 >
                   <h2 class="text-md-h3 text-h5">

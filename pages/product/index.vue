@@ -106,11 +106,11 @@
               <v-fade-transition :key="`product${p.id}-${i}`">
                 <v-col cols="12" md="4">
                   <v-card
-                  class="mx-auto Product-Card pa-5 rounded-lg"
+                  class="mx-auto Product-Card pa-5 rounded"
                   outlined
                   >
 
-                    <nuxt-link :to="`/product/${p.id}`">
+                    <nuxt-link :to="localePath(`/product/${p.id}`)">
                     <v-img  :src="require(`~/static/images/shop/${p.image}`)" contain  height="200">
                       <template slot="placeholder">
                         <v-row
@@ -156,7 +156,7 @@
                     </v-card-text>
                     <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
                         <v-btn
-                          class="addcart font-weight-bold rounded-lg pa-5 hidden-md-and-down"
+                          class="addcart font-weight-bold rounded pa-5 hidden-md-and-down"
                           :loading="loading&&p.id == product.id"
                           :disabled="loading&&p.id==product.id"
                           @click="AddToCart(p)"
@@ -169,7 +169,7 @@
                         <v-spacer> </v-spacer>
       <v-btn
         outlined
-        class="rounded-lg pa-5"
+        class="rounded pa-5"
       >
       <i class="fa-regular fa-heart fa-lg"></i>
       </v-btn>
