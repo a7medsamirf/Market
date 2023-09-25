@@ -31,9 +31,6 @@
             </v-card-subtitle>
 
 
-
-
-
           </v-card>
 
 

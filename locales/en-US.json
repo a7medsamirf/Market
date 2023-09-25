@@ -1,5 +1,6 @@
 {
   "common": {
+    "NoItems": "No Items Just Yet",
     "Dark-Mode": "Dark Mode",
     "discuss": "Let's discuss",
     "Learn-more": "Learn More",
@@ -32,6 +33,10 @@
       "QuickLinks": "روابط سريعة",
       "Copyright": "حقوق الطبع والنشر",
       "reserved": " كل الحقوق محفوظة."
-    }
+    },
+    "Features":{
+      "title": ""
+  }
+ 
 
 }

@@ -19,7 +19,7 @@
       <div class="inner align-center justify-center">
         <div class="text-center" v-if="$store.state.cart.cart.length == 0">
           <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
-          <p>No Items Just Yet</p>
+          <p class="use-text-title4">{{ $t('common.NoItems') }}</p>
         </div>
         <v-container>
 
@@ -33,26 +33,27 @@
  class="mx-auto mb-3 rounded" outlined flat>
 
   <v-list-item three-line :key="`cartItem${i}`">
-    <v-list-item-avatar tile size="70" >
-      <v-img class="rounded" :title="c.product.name" height="100" width="100" contain
+    <v-list-item-avatar tile size="70" outlined>
+      <v-img :title="c.product.name" height="100" width="100" contain
         :src="require(`~/static/images/shop/${c.product.image}`)">
       </v-img>
     </v-list-item-avatar>
     <v-list-item-content>
       <v-list-item-title class="text-h5"> {{ c.product.name }} </v-list-item-title>
       <v-list-item-subtitle>{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
-
     </v-list-item-content>
 
-
-    <v-btn outlined @click="$store.commit('cart/IncreaseItemCount', i)" icon>
+  <div class="count" >
+    <v-btn @click="$store.commit('cart/IncreaseItemCount', i)" icon>
       <v-icon  size="20">mdi-plus-circle</v-icon>
     </v-btn>
 
     <span class="mx-2">{{ c.quantity }}</span>
-    <v-btn outlined  @click="$store.commit('cart/DecreaseItemCount', i)" icon>
+    <v-btn  @click="$store.commit('cart/DecreaseItemCount', i)" icon>
       <v-icon size="20">mdi-minus-circle</v-icon>
     </v-btn>
+  </div>
+
 
   <span>  {{ $formatMoney(c.product.price * c.quantity) }}</span>
 
@@ -137,61 +138,9 @@
   </script>
 
   <style lang="scss">
-  .v-data-table > .v-data-table__wrapper > table {
-    border-spacing: 0 0.5rem;
-  }
 
-  .v-data-table {
-    .v-data-table__wrapper {
-      table {
-        td,
-        th {
-          padding-left: 16px !important;
-          min-width: 170px !important;
-          border: 1px solid #e8e8e8 !important;
-          border-bottom: none !important;
-          font: 14px/40px !important;
-          text-align: left !important;
-        }
+.v-avatar{
+    @include rtl-sass-margin-right(12px);
 
-        td {
-          color: #666 !important;
-        }
-
-        th {
-          color: #231E41 !important;
-          border: none !important;
-          font-size: 16px !important;
-          font-weight: $font-medium;
-        }
-
-
-
-        tbody tr td {
-          border: none !important;
-          height: 65px;
-        }
-      }
-    }
-  }
-  .theme--light.v-application
-  {
-       tbody {
-          tr {
-            margin: 20px 5px;
-            background-color: #fbfbfb !important;
-            cursor: pointer !important;
-          }
-        }
-  }
-  .theme--dark.v-application
-  {
-         tbody {
-          tr {
-            margin: 20px 5px;
-            cursor: pointer !important;
-          }
-        }
-  }
-
+ }
   </style>
