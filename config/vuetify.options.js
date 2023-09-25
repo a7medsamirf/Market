@@ -7,6 +7,9 @@ export default {
   rtl: false,
   theme: {
     dark: darkMode === 'false',
+    typography: {
+      fontFamily: 'DINArabic',
+    },
     themes: {
       dark: {
         BgColor: '#272727',

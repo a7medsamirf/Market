@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-wrap ">
+    <div class="cart-wrap">
       <v-container>
    <v-breadcrumbs :items="items">
     <template v-slot:item="{ item }">
@@ -39,25 +39,23 @@
       </v-img>
     </v-list-item-avatar>
     <v-list-item-content>
-      <v-list-item-title class="text-h5"> {{ c.product.name }} </v-list-item-title>
-      <v-list-item-subtitle>{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
+      <v-list-item-title class="text-h5 Gray600--text"> {{ c.product.name }} </v-list-item-title>
+      <v-list-item-subtitle class="Gray400--text">{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
     </v-list-item-content>
 
-  <div class="count" >
-    <v-btn @click="$store.commit('cart/IncreaseItemCount', i)" icon>
-      <v-icon  size="20">mdi-plus-circle</v-icon>
-    </v-btn>
 
-    <span class="mx-2">{{ c.quantity }}</span>
-    <v-btn  @click="$store.commit('cart/DecreaseItemCount', i)" icon>
-      <v-icon size="20">mdi-minus-circle</v-icon>
-    </v-btn>
+  <div class="count rounded " outlined>
+    <button class="Gray600--text pa-2" @click="$store.commit('cart/IncreaseItemCount', i)"><i class="fa-regular fa-plus" ></i></button>
+
+    <span class="mx-2 Gray600--text">{{ c.quantity }}</span>
+
+    <button class="Gray600--text pa-2" @click="$store.commit('cart/DecreaseItemCount', i)"><i class="fa-regular fa-minus"></i></button>
   </div>
 
 
-  <span>  {{ $formatMoney(c.product.price * c.quantity) }}</span>
+  <span class="px-5"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
 
-    <v-btn  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
+    <v-btn class="delete"  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
       <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
     </v-btn>
 
@@ -138,9 +136,20 @@
   </script>
 
   <style lang="scss">
-
-.v-avatar{
-    @include rtl-sass-margin-right(12px);
-
+  .cart-wrap{
+    .v-avatar{
+      @include rtl-sass-margin-right(12px);
+    }
+.count{
+    @include rtl-sass-margin-right(30px);
+    border: thin solid rgba(0, 0, 0, 0.12);
+    padding: 0 10px;
+    margin-top: 10px;
  }
+ 
+  }
+  .v-btn.delete:before{
+    opacity: 0.08;
+  }
+
   </style>
