@@ -1,6 +1,5 @@
 {
   "common": {
-    "NoItems": "No Items Just Yet",
     "Dark-Mode": "Dark Mode",
     "discuss": "Let's discuss",
     "Learn-more": "Learn More",
@@ -36,7 +35,13 @@
     },
     "Features":{
       "title": ""
+  },
+  "product":{
+    "NoItems": "No Items Just Yet",
+    "OutOfStock": "Out Of Stock",
+    "InStock": "In Stock"
   }
+
  
 
 }

@@ -176,7 +176,7 @@ export default {
   build:{
     loaders: {
       vus: { cacheBusting: true },
-      scss: { sourceMap: false }
+      scss: { sourceMap: true }
     }
   }
 }

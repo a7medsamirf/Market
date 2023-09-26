@@ -8,7 +8,7 @@
   
   
         <v-row class="mt-10">
-          <v-col cols="12" lg="3" md="3" sm="6" v-for="(product, i) in products" :key="`products${i}`">
+          <v-col class="pa-2" cols="12" lg="3" md="3" sm="6" v-for="(product, i) in products" :key="`product${product.id}-${i}`" >
             <v-skeleton-loader
                     v-if="data_loaded"
                     type=" card-avatar, article, actions"
@@ -20,7 +20,6 @@
                     class="mx-auto Product-Card rounded"
                     v-if="!data_loaded"
                 >
-  
       <v-img
         height="200"
         contain
@@ -33,40 +32,82 @@
         text-color="white">  {{ $formatMoney(product.price) }}  </v-chip>
   
     </v-img>
-
-    <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text">  {{ product.name }} </v-card-title>
+      <div class="content">
+    <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text pb-1">  {{ product.name }} </v-card-title>
   
-      <v-card-text class="product-description text-Gray600">
-        <p class=""> {{ product.description }}</p>
+      <v-card-text class="product-description text-Gray600 pb-0">
+        <p class="pb-0 mb-1 font-weight-regular"> {{ product.description }}</p>
       </v-card-text>
-      <h4 class="text-md-h6  error--text"><span class="old-price">{{ $formatMoney(product.price) }}</span> {{ $formatMoney(product.salePrice) }}</h4>
+      <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="product.ratings"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="16"
+        ></v-rating>
+
+        <div class="grey--text ms-4">
+          {{product.ratings}}
+        </div>
+      </v-row>
+    </v-card-text>
+
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+      <h4 class="ext-subtitle-1 error--text price"><span class="old-price">{{ $formatMoney(product.price) }}</span> {{ $formatMoney(product.salePrice) }}   
+      </h4>
+      <v-spacer> </v-spacer>
+        <div class="grey--text ms-4">
+        
+      <p v-if="product.inStock" class="in-stock mb-0">{{ $t('product.InStock') }}</p>
+       <p v-else class="out-of-stock mb-0">{{ $t('product.OutOfStock') }}</p>
+
+        </div>
+      </v-row>
+    </v-card-text>
+
+
+   
+  </div>
+
+
+
+
 
       <v-card-actions>
+
+
         <v-btn
-          class="addcart font-weight-bold rounded pa-5 hidden-md-and-down"
-          :to="`/product/${product.id}`"
-          flat
+        v-if="product.inStock"
+          class="addcart font-weight-bold rounded pa-5 "
+          :loading="loading&&product.id == product.id"
+          :disabled="loading&&product.id == product.id"
+          @click="AddToCart(product)"
           outlined
           width="70%"
         >
         <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
         {{ $t('common.AddToCart') }}
         </v-btn>
-  
-        <v-btn
-          class="addcart font-weight-bold rounded pa-5 hidden-lg-and-up"
-          :to="`/product/${product.id}`"
-          flat
-          outlined
+        <v-btn class="OutOfStock font-weight-bold rounded pa-5" v-else color="error" 
+         elevation="0"
           width="70%"
         >
-        <v-icon right  class="fa-regular fa-bag-shopping fa-lg pa-5"></v-icon>
-        
-   
-        </v-btn>
-  
-  
-  
+        {{ $t('product.OutOfStock') }}
+      
+      </v-btn>
+
+
+
         <v-spacer> </v-spacer>
         <v-btn
           outlined
@@ -77,11 +118,18 @@
       </v-card-actions>
     </v-card>
   
-  
+
+
           </v-col>
   
   
         </v-row>
+
+
+
+
+
+        
       </v-container>
     </div>
   
@@ -93,61 +141,58 @@
   <script>
   import Title from '../widget/Title.vue'
   export default {
-  
-      name: "Product",
-      components: {Title },
-      props: { products: Array },
+  name: "Product",
+  components: {Title },
+  props: { products: Array },
       data () {
       return {
         data_loaded : true,
+        loader: null,
+        loading: false,
+        product:null
       }
     },
+    watch: {
+  loader () {
+    const l = this.loader
+    this[l] = !this[l]
+    setTimeout(() => (this[l] = false), 3000)
+    this.loader = null
+  },
+},
+
     mounted(){
       setTimeout(()=>{
         this.data_loaded= false;
       } , 2000);
     },
-    methods: {
-      formatDate(date) {
+    methods : {
+    AddToCart(prod){
+      this.product = prod;
+      setTimeout(()=>{
+        this.$store.commit('cart/AddToCart', prod);
+        this.loading = false;
+      } , 1000);
+      this.loading = true;
+    },
+    formatDate(date) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' }
         return new Date(date).toLocaleDateString('ar', options)
-      }
-    },
-  
+      },
+  }
+
   }
   </script>
   <style>
-  .Product-Card {
-    border: 1px solid #fff;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    p {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-  }
-  .v-btn{
-    border: 1px solid #EEEEEE;
-  }
-  &:hover {
-    border: 1px solid #62D0B6;
-    .v-btn.addcart{
-      background-color: #62D0B6;
-      color: #fff;
-      border: 1px solid #62D0B6;
-      transition: all 0.5s ease-in-out;
-    }
-  }
-  }
-  
-  .old-price {
-    -webkit-text-decoration: line-through;
-    text-decoration: line-through;
-    margin-right: 6px;
+.in-stock {
+  color: green; /* or any other preferred style */
 }
-.old-price {
-    color: #babbbc !important;
+
+.out-of-stock {
+  color: red; /* or any other preferred style */
+}
+.OutOfStock{
+  cursor: no-drop;
 }
 
   </style>

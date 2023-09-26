@@ -20,7 +20,7 @@ export default {
         primary: '#62D0B6',
         secondary: '#333333',
         accent: '#82B1FF',
-        error: '#F55157',
+        error: '#dd3842',
         info: '#5196F3',
         success: '#00AF6C',
         warning: '#FFC62A',
@@ -36,7 +36,7 @@ export default {
         primary: '#62D0B6',
         secondary: '#333333',
         accent: '#82B1FF',
-        error: '#F55157',
+        error: '#dd3842',
         info: '#5196F3',
         success: '#00AF6C',
         warning: '#FFC62A',
@@ -45,7 +45,7 @@ export default {
 
     },
     options: {
-      customProperties: true
+      customProperties: false
     }
   }
 }

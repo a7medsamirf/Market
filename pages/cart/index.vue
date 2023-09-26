@@ -19,7 +19,7 @@
       <div class="inner align-center justify-center">
         <div class="text-center" v-if="$store.state.cart.cart.length == 0">
           <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
-          <p class="use-text-title4">{{ $t('common.NoItems') }}</p>
+          <p class="use-text-title4">{{ $t('product.NoItems') }}</p>
         </div>
         <v-container>
 

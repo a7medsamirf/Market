@@ -104,7 +104,7 @@
 
             <template v-for="(p, i) in filteredProducts">
               <v-fade-transition :key="`product${p.id}-${i}`">
-                <v-col cols="12" md="4">
+                <v-col cols="12" md="4" class="pa-2">
                   <v-card
                   class="mx-auto Product-Card pa-5 rounded"
                   outlined
@@ -169,7 +169,7 @@
                         <v-spacer> </v-spacer>
       <v-btn
         outlined
-        class="rounded pa-5"
+        class="Wishlist rounded pa-5"
       >
       <i class="fa-regular fa-heart fa-lg"></i>
       </v-btn>
@@ -260,12 +260,11 @@ export default {
 </script>
 
 <style>
-  .v-btn.addcart{
-    background-color: #62D0B6;
-    color: #fff;
-    border: 1px solid #62D0B6;
-    transition: all 0.5s ease-in-out;
-  }
+.Wishlist:hover{
+  background-color: #f55157;
+  transition: all 0.5s ease-in-out;
+  color: #fff;
+}
 </style>
 
 

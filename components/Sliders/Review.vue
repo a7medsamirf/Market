@@ -33,7 +33,7 @@
 
           </v-avatar>
 
-    <v-list-item-content>
+    <v-list-item-content class="ms-4">
       <v-list-item-title class="text-h5 mb-1">{{ review.name }}</v-list-item-title>
       <v-list-item-subtitle>Web Designer</v-list-item-subtitle>
     </v-list-item-content>
@@ -138,7 +138,7 @@ data(){
         margin: 5px ;
         .person-block{
             .v-avatar{
-                @include rtl-sass-margin-right(12px);
+               
             }
         }
       

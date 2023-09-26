@@ -71,7 +71,7 @@ export default {
         {title: 'كل المنتجات', to: '/product'},
         {title: 'كل المنتجات', to: '/blog'},
         {title: 'أختبار', to: '/test'},
-        {title: 'About Us', to: '/About-Us'},
+        {title: 'text', to: '/text'},
         { title: 'Pages',
           subitems: [
             {title: 'gallery', to: '/gallery'},
