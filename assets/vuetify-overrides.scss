@@ -64,7 +64,9 @@ body{
 .text-h4,
 .text-h5,
 .text-h6,
-.v-list-item__title
+.v-list-item__title,
+.swal2-popup.swal2-toast .swal2-html-container,
+.Vue-Toastification__toast
  {
  font-family: $body-font-family;
 }
@@ -143,8 +145,17 @@ body{
     transition: all 0.5s ease-in-out;
   }
 }
+
+.in-stock {
+  color: green; /* or any other preferred style */
 }
 
+.out-of-stock {
+  color: red; /* or any other preferred style */
+}
+.OutOfStock{
+  cursor: no-drop;
+}
 .old-price {
   -webkit-text-decoration: line-through;
   text-decoration: line-through;
@@ -153,3 +164,6 @@ body{
 .old-price {
   color: #babbbc !important;
 }
+
+}
+

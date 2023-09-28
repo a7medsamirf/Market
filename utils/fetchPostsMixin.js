@@ -1,6 +1,4 @@
 export default {
-
-  
   async created() {
     try {
       this.sale_items = await this.$content("product")
@@ -25,7 +23,25 @@ export default {
       productsitems: null,
     };
   },
+  // Featured products
+/*   async asyncData({ $content, app, error}) {
+    const defaultLocale = app.i18n.locale;
+    const Featured = await $content(`${defaultLocale}/product`)
+      .sortBy('createdAt', 'desc')
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
+    return {
+      Featured: Featured.map(product => ({
+        ...product,
+        path: product.path.replace(`/${defaultLocale}`, ''),
+      })),
+      data_loaded : true,
   
+    }
+  },
+   */
   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
     const blogs = await $content(`${defaultLocale}/blog`)

@@ -80,7 +80,7 @@
    
             >
             <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
-            {{ $t('common.AddToCart') }}
+            {{ $t('product.AddToCart') }}
         </v-btn>
 
 
@@ -213,14 +213,5 @@ export default {
     text-decoration: line-through;
     margin-right: 6px;
 }
-
-
-  .v-btn.addcart{
-    background-color: #62D0B6;
-    color: #fff;
-    border: 1px solid #62D0B6;
-    transition: all 0.5s ease-in-out;
-  }
-
 
 </style>

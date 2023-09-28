@@ -48,7 +48,7 @@
         width="70%"
       >
       <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
-      {{ $t('common.AddToCart') }}
+      {{ $t('product.AddToCart') }}
       </v-btn>
 
       <v-btn

@@ -50,13 +50,13 @@
 
     <Settings />
     <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
-       <v-btn @click.stop="rightDrawer = !rightDrawer"  icon><v-icon size="20">mdi-cart-outline</v-icon></v-btn>
+       <v-btn @click.stop="rightDrawer = !rightDrawer"  icon><v-icon class="fa-regular fa-cart-shopping-fast fa-lg"></v-icon></v-btn>
       </v-badge>
-      <v-btn @click.stop="rightDrawer = !rightDrawer" v-else  icon><v-icon size="20">mdi-cart-outline</v-icon></v-btn>
+      <v-btn @click.stop="rightDrawer = !rightDrawer" v-else  icon><v-icon class="fa-regular fa-cart-shopping-fast fa-lg"></v-icon></v-btn>
 
       </v-container>
     </v-app-bar>
-    
+
    <!---------- End App Bar ---------->
 
     <menu-nav />
@@ -99,7 +99,9 @@
 
                     </v-list-item-avatar>
                     <v-list-item-content>
+
                       <v-list-item-title class="text-p mb-1">{{ cartItem.product.name }}</v-list-item-title>
+                      
                       <v-list-item-subtitle>{{ $formatMoney(cartItem.product.price * cartItem.quantity) }}</v-list-item-subtitle>
                       <v-list-item-subtitle>
                         <v-btn @click="$store.commit('cart/IncreaseItemCount', i)" icon color="primary">

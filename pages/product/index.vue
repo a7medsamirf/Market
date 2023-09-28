@@ -46,21 +46,7 @@
                   <h2>Categories</h2>
                   <span></span>
                 </div>
-                <v-chip
-                  class="ma-2 white--text"
-                  color="primary"
-                  label
-                  link
-                  v-for="(c, i) in categories"
-                  :key="`category${i}`"
-                >
-
-                  <v-icon left text-color="white">
-                    mdi-label
-                  </v-icon>
-                  {{ c.name }}
-
-                </v-chip>
+    
 
               </v-list>
 
@@ -69,21 +55,8 @@
                   <h2>Tags</h2>
                   <span></span>
                 </div>
-                <v-chip
-                  class="ma-2 white--text"
-                  color="primary"
-                  label
-                  link
-                  v-for="(t, i) in tags"
-                  :key="`tag${t}`"
-                >
 
-                  <v-icon left text-color="white">
-                    mdi-label
-                  </v-icon>
-                  {{ t.name }}
 
-                </v-chip>
 
               </v-list>
 
@@ -104,9 +77,9 @@
 
             <template v-for="(p, i) in filteredProducts">
               <v-fade-transition :key="`product${p.id}-${i}`">
-                <v-col cols="12" md="4" class="pa-2">
+                <v-col cols="12" md="3" class="pa-2">
                   <v-card
-                  class="mx-auto Product-Card pa-5 rounded"
+                  class="mx-auto Product-Card pa-3 rounded"
                   outlined
                   >
 
@@ -126,37 +99,82 @@
                           ></v-progress-circular>
                         </v-row>
                       </template>
+           
+
+                        <v-chip v-if="p.new"
+                        class="ma-4"
+                        color="red"
+                        label
+                        text-color="white"
+                           
+                              >
+                              {{ $t('product.new') }}
+                              </v-chip>
+                        
+
+                      <v-chip v-if="!isNaN(p.discount)"
+                        class="ma-4"
+                        color="primary"
+                        label
+                        text-color="white">  {{ p.discount }}  % {{ $t('product.Discount') }}</v-chip>
+                  
+
                     </v-img>
                     </nuxt-link>
-                    <v-card-title class="text-md-body-1 font-weight-bold">{{p.name}}</v-card-title>
-                    <v-card-text class="product-description text-Gray600">
-      <p class=""> {{ p.description }}</p>
+
+                    <div class="content">
+    <v-card-title class="font-weight-bold Gray600--text pb-1">  {{ p.name }} </v-card-title>
+  
+      <v-card-text class="product-description text-Gray600 pb-0">
+        <p class="pb-0 mb-1 font-weight-regular"> {{ p.description }}</p>
+      </v-card-text>
+      <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="p.ratings"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="16"
+        ></v-rating>
+
+        <div class="grey--text ms-4">
+          {{p.ratings}}
+        </div>
+      </v-row>
     </v-card-text>
-                    <v-card-subtitle class="primary--text pb-3">
-                      ${{ p.price }}
-                    </v-card-subtitle>
-                    <v-card-text>
+
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+      <h4 class="ext-subtitle-1 error--text price"><span class="old-price">{{ $formatMoney(p.price) }}</span> {{ $formatMoney(p.salePrice) }}   
+      </h4>
+      <v-spacer> </v-spacer>
+        <div class="grey--text ms-4">
+        
+      <p v-if="p.inStock" class="in-stock mb-0">{{ $t('product.InStock') }}</p>
+       <p v-else class="out-of-stock mb-0">{{ $t('product.OutOfStock') }}</p>
+
+        </div>
+      </v-row>
+    </v-card-text>
 
 
-                      <v-chip
-                        x-small
-                        label
-                        outlined
-                        class="mr-1"
-                        v-for="(t, i) in p.tags"
-                        :key="`prod${p.id}-${i}`"
-                      >
-                        <NuxtLink :to="`/tag/${t.id}`" class="white--text">
-
-                          {{ t }}
-                        </NuxtLink>
+   
+  </div>
 
 
-                      </v-chip>
-                    </v-card-text>
-                    <v-card-actions class="d-flex justify-space-between dense py-2 pa-0">
+        
+                    <v-card-actions>
                         <v-btn
-                          class="addcart font-weight-bold rounded pa-5 hidden-md-and-down"
+                            v-if="p.inStock"
+                          class="addcart font-weight-bold rounded pa-5 "
                           :loading="loading&&p.id == product.id"
                           :disabled="loading&&p.id==product.id"
                           @click="AddToCart(p)"
@@ -164,18 +182,30 @@
                           width="70%"
                         >
                         <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
-                        {{ $t('common.AddToCart') }}
+                        {{ $t('product.AddToCart') }}
                         </v-btn>
+                        <v-btn class="OutOfStock font-weight-bold rounded pa-5" v-else color="error" 
+                        elevation="0"
+                          width="70%"
+                        >
+                        {{ $t('product.OutOfStock') }}
+
+                        </v-btn>
+
+
+
                         <v-spacer> </v-spacer>
-      <v-btn
-        outlined
-        class="Wishlist rounded pa-5"
-      >
-      <i class="fa-regular fa-heart fa-lg"></i>
-      </v-btn>
+                        <v-btn
+                          outlined
+                          class="rounded pa-5"
+                        >
+                        <i class="fa-regular fa-heart fa-lg"></i>
+                        </v-btn>
+                        </v-card-actions>
 
 
-                    </v-card-actions>
+
+
                   </v-card>
                 </v-col>
               </v-fade-transition>
@@ -194,15 +224,24 @@ import Social from "~/components/widget/social";
 export default {
     name: "products",
   components: {Social},
-  head() {
+  head() { return { title: this.PageTitle,} },
+  
+  async asyncData({ $content, app, error}) {
+    const defaultLocale = app.i18n.locale;
+    const products = await $content(`${defaultLocale}/product`)
+      .sortBy('createdAt', 'desc')
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
     return {
-      title: this.PageTitle,
+      products: products.map(product => ({
+        ...product,
+        path: product.path.replace(`/${defaultLocale}`, ''),
+      })),
+      data_loaded : true,
+
     }
-  },
-  async created() {
-    this.products = await this.$content('product').fetch();
-    this.categories = await this.$content('categories').fetch()
-    this.tags = await this.$content('tags').fetch()
   },
   data() {
     return {
@@ -212,8 +251,6 @@ export default {
       ],
       PageTitle: 'Shop',
       products: null,
-      tags: null,
-      categories: null,
       search: null,
       loader: null,
       loading: false,

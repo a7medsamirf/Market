@@ -81,7 +81,7 @@
 
 
 
-
+  text: ItemRemoved,
 
       <v-card-actions>
 
@@ -96,7 +96,7 @@
           width="70%"
         >
         <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
-        {{ $t('common.AddToCart') }}
+        {{ $t('product.AddToCart') }}
         </v-btn>
         <v-btn class="OutOfStock font-weight-bold rounded pa-5" v-else color="error" 
          elevation="0"
@@ -184,16 +184,6 @@
   }
   </script>
   <style>
-.in-stock {
-  color: green; /* or any other preferred style */
-}
-
-.out-of-stock {
-  color: red; /* or any other preferred style */
-}
-.OutOfStock{
-  cursor: no-drop;
-}
 
   </style>
   

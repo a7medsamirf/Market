@@ -34,7 +34,8 @@ export default {
     //Update local storage
     localStorage.setItem("myCart", JSON.stringify(state.cart));
     CalculateTotal(state); ////////////
-    this.$toast.success("Add To Cart", {
+    const AddToCart = this.$i18n.t('product.AddToCart');
+    this.$toast.success(AddToCart, {
       position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
@@ -79,7 +80,8 @@ export default {
   RemoveCartItem(state, index) {
     state.cart.splice(index, 1);
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
-    this.$toast.error("Item Removed.", {
+    const ItemRemoved = this.$i18n.t('product.ItemRemoved');
+    this.$toast.error(ItemRemoved, {
       position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
@@ -101,16 +103,21 @@ export default {
     item.quantity += 1;
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
-    this.$swal({
-      toast: true,
-      text: CartUpdated,
-/*       text: $t('product.CartUpdated'),  */
-      icon: "success",
-      timer: 3000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-      position: "center",
+    this.$toast.success(CartUpdated, {
+      position: "bottom-center",
+      timeout: 2635,
+      closeOnClick: true,
+      pauseOnFocusLoss: true,
+      pauseOnHover: true,
+      draggable: true,
+      draggablePercent: 0.6,
+      showCloseButtonOnHover: false,
+      hideProgressBar: true,
+      closeButton: "button",
+      icon: true,
+      rtl: false
     });
+
   },
   ClearCart(state) {
     state.cart = [];
