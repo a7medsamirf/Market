@@ -8,7 +8,7 @@
   
   
         <v-row class="mt-10">
-          <v-col class="pa-2" cols="12" lg="3" md="3" sm="6" v-for="(product, i) in products" :key="`product${product.id}-${i}`" >
+          <v-col class="pa-2" cols="12" xl="2" lg="3" md="4" sm="6" v-for="(product, i) in products" :key="`product${product.id}-${i}`" >
             <v-skeleton-loader
                     v-if="data_loaded"
                     type=" card-avatar, article, actions"
@@ -33,7 +33,7 @@
   
     </v-img>
       <div class="content">
-    <v-card-title class="text-subtitle-1 font-weight-bold Gray600--text pb-1">  {{ product.name }} </v-card-title>
+    <v-card-title class="font-weight-bold Gray600--text pb-1">  {{ product.name }} </v-card-title>
   
       <v-card-text class="product-description text-Gray600 pb-0">
         <p class="pb-0 mb-1 font-weight-regular"> {{ product.description }}</p>

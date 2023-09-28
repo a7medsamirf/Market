@@ -7,10 +7,15 @@ export default {
   rtl: false,
   theme: {
     dark: darkMode === 'false',
+    
     typography: {
       fontFamily: 'DINArabic',
     },
+    font: {
+      family: 'DINArabic' 
+    },
     themes: {
+      fontFamily: 'DINArabic, sans-serif',
       dark: {
         BgColor: '#272727',
         Gray50: '#1E1E1E',
@@ -45,7 +50,7 @@ export default {
 
     },
     options: {
-      customProperties: false
+      customProperties: true
     }
   }
 }

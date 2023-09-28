@@ -39,7 +39,12 @@
   "product":{
     "NoItems": "No Items Just Yet",
     "OutOfStock": "Out Of Stock",
-    "InStock": "In Stock"
+    "InStock": "In Stock",
+    "ProcessingOrder": " Processing your order",
+    "CartUpdated": "Cart Updated",
+    "PleaseWait": "Please Wait",
+    "OrderComplete": "Order Complete",
+    "ThankYou": "Thank You So Much ❤"
   }
 
  

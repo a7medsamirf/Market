@@ -10,6 +10,13 @@
 
 /*$material-light: ( 'background': #faf7f2 );
 $material-dark: ( 'background': #001e26 );*/
+
+
+/*
+** RTL Mixins including margin, pading, position, border and border radius
+** See documentation https://www.npmjs.com/package/rtl-sass
+*/
+
 $material-light: (
     'v-btn': (
         'outlined': rgba(0,0,0, 0.19),
@@ -24,6 +31,7 @@ $material-light: (
 // $font-size-root: 20px;
 
 // font-family
+
 $body-font-family: 'DINArabic', sans-serif !important;
 $en-body-font-family: 'Nunito', sans-serif !important;
 

@@ -95,25 +95,21 @@ export default {
     });
 
   },
-
   IncreaseItemCount(state, index) {
+    const CartUpdated = this.$i18n.t('product.CartUpdated');
     let item = state.cart[index];
     item.quantity += 1;
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
-    this.$toast.success("Cart Updated.", {
-      position: "bottom-center",
-      timeout: 2635,
-      closeOnClick: true,
-      pauseOnFocusLoss: true,
-      pauseOnHover: true,
-      draggable: true,
-      draggablePercent: 0.6,
-      showCloseButtonOnHover: false,
-      hideProgressBar: true,
-      closeButton: "button",
-      icon: true,
-      rtl: false
+    this.$swal({
+      toast: true,
+      text: CartUpdated,
+/*       text: $t('product.CartUpdated'),  */
+      icon: "success",
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      position: "center",
     });
   },
   ClearCart(state) {

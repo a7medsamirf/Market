@@ -169,8 +169,11 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+
     customVariables: ['~/assets/styles.scss'],
-    optionsPath: './config/vuetify.options.js'
+    optionsPath: './config/vuetify.options.js',
+/*     treeShake: true, */
+
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build:{

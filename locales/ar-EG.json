@@ -40,7 +40,12 @@
   "product":{
     "NoItems": "لا توجد منتجات حتى الآن",
     "OutOfStock": "إنتهى من المخزن",
-    "InStock": "فى المخزن"
+    "InStock": "فى المخزن",
+    "ProcessingOrder": "معالجة طلبك",
+    "CartUpdated": "تم تحديث سلة التسوق ",
+    "PleaseWait": "من فضلك أنتظر",
+    "OrderComplete": "الطلب جاهز",
+    "ThankYou": "شكرا جزيلا ❤"
   }
 
 }

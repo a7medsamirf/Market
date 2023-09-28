@@ -114,7 +114,7 @@
   </template>
   
   <script>
-  import FM from "~/mixins/FormMixinx";
+  import FormMixinx from "~/mixins/FormMixinx";
   export default {
     name: "Confirm",
     head() {
@@ -122,43 +122,46 @@
         title: this.PageTitle,
       }
     },
-    mixins: [FM],
+    mixins: [FormMixinx],
     data() {
       return {
         PageTitle: 'Confirm',
-        email: null,
-        name: null,
-        phone: null,
-        address: null,
-        city: null,
-        country: null,
-        cc: "424242424242",
-        expdate: "06/15",
-        cvv: "123",
+        email: "ahmed.samir@gmail.com",
+        name: "ahmed samir",
+        phone: "01111220072",
+        address: "cairo",
+        city: "cairo",
+        country: "Egypt",
+        cc: "4001-9192-5753-7193",
+        expdate: "06/30",
+        cvv: "125",
       };
     },
     methods: {
       async proccess() {
+        const ProcessingOrder = this.$i18n.t('product.ProcessingOrder');
+        const PleaseWait = this.$i18n.t('product.PleaseWait');
+        const OrderComplete = this.$i18n.t('product.OrderComplete');
+        const ThankYou = this.$i18n.t('product.ThankYou');
         if (!this.$refs.form.validate()) return;
-  
         await this.$swal({
-          title: "Proceessing your order",
+          title: ProcessingOrder, 
           icon: "info",
           allowEscapeKey: false,
           allowOutsideClick: false,
           timer: 2000,
           timerProgressBar: true,
-          text: "Please Wait",
+          text: PleaseWait,
           showConfirmButton: false,
         });
         await this.$swal({
-          title: "Order Complete",
+          title: OrderComplete,
           icon: "success",
           allowEscapeKey: false,
           allowOutsideClick: false,
           timer: 2000,
           timerProgressBar: true,
-          text: "Thank You So Much ❤",
+          text: ThankYou,
           showConfirmButton: false,
         });
         //Remove items from cart
