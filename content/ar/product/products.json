@@ -1,4 +1,5 @@
 [
+  
   {
     "id": 1,
     "name": "نص تجريبى",
@@ -23,7 +24,7 @@
     "price": 63,
     "salePrice": 50,
     "ratings": 4.5,
-    "new": true
+    "new": false
   },
   {
     "id": 3,
@@ -62,7 +63,7 @@
     "price": 89,
     "salePrice": 75,
     "ratings": 3.5,
-    "new": true
+    "new": false
   },
   {
     "id": 6,

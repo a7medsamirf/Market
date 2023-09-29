@@ -53,7 +53,7 @@
   </div>
 
 
-  <span class="px-5"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
+  <span class="px-5 ms-16"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
 
     <v-btn class="delete"  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
       <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>

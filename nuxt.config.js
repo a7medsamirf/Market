@@ -179,7 +179,7 @@ export default {
   build:{
     loaders: {
       vus: { cacheBusting: true },
-      scss: { sourceMap: true }
+      scss: { sourceMap: false }
     }
   }
 }

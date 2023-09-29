@@ -102,7 +102,7 @@
            
 
                         <v-chip v-if="p.new"
-                        class="ma-4"
+                        class="ma-1"
                         color="red"
                         label
                         text-color="white"
@@ -113,7 +113,7 @@
                         
 
                       <v-chip v-if="!isNaN(p.discount)"
-                        class="ma-4"
+                        class="ma-1"
                         color="primary"
                         label
                         text-color="white">  {{ p.discount }}  % {{ $t('product.Discount') }}</v-chip>
