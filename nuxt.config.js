@@ -39,7 +39,7 @@ export default {
     '~/assets/vuetify-overrides.scss',
     '~/assets/vendors/slick-carousel/slick-theme.css',
     '~/assets/vendors/slick-carousel/slick.css',
-    '~/assets/vendors/slick-carousel/slick.css',
+    '~/assets/vendors/webfonts/uicons-regular-rounded.css',
     '~/assets/vendors/materialdesignicons.min.css',
     '~/assets/vendors/animate.css'
   ],
@@ -49,6 +49,7 @@ export default {
     {src: '~/plugins/cart.js', ssr: false},
     {src: '~/plugins/toast-notification', ssr: false},
     {src: '~/plugins/i18n-config.js' },
+    {src: '~/plugins/smooth-scroll', ssr: false},
     {src: '~/plugins/fontawesome.js', ssr: false},
     {src: '~/plugins/wow.js', ssr: false},
   ],

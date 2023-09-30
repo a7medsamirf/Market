@@ -20,7 +20,22 @@
         <v-row v-if="product"  justify="center">
           <v-col cols="12" lg="6" md="12">
             <div class="product-img">
-        <v-img width="100%" height="500" contain  class="el rounded"  :src="require(`~/static/images/shop/${product.image}`)" />
+              <v-carousel>
+            <v-carousel-item
+              :src="require('~/static/images/blog/1.png')"
+            >
+            </v-carousel-item>
+            <v-carousel-item
+              :src="require('~/static/images/blog/2.png')"
+            >
+            </v-carousel-item>
+            <v-carousel-item
+              :src="require('~/static/images/blog/3.png')"
+            >
+            </v-carousel-item>
+  
+
+          </v-carousel>
 
             <div class="sb-badge">
               <v-chip

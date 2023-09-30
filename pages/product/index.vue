@@ -20,8 +20,10 @@
     <v-container>
       <v-row dense>
 
+
         <v-col cols="12" md="3">
-          <div class="sidebar-wrap mx-3">
+
+            <div class="sidebar-wrap mx-3">
             <div class="sidebar-widget mb-5">
               <v-text-field
                 v-model="search"
@@ -69,6 +71,8 @@
 
           </div>
 
+     
+
         </v-col>
 
 
@@ -77,7 +81,7 @@
 
             <template v-for="(p, i) in filteredProducts">
               <v-fade-transition :key="`product${p.id}-${i}`">
-                <v-col cols="12" md="3" class="pa-2">
+                <v-col cols="12" xl="3" lg="4" md="4" class="pa-2">
                   <v-card
                   class="mx-auto Product-Card pa-3 rounded"
                   outlined
@@ -291,7 +295,8 @@ export default {
         this.loading = false;
       } , 1000);
       this.loading = true;
-    }
+    },
+
   }
 };
 </script>
@@ -301,6 +306,12 @@ export default {
   background-color: #f55157;
   transition: all 0.5s ease-in-out;
   color: #fff;
+}
+
+.sidebar-wrap
+{
+  position: sticky !important;
+  top: 100px;
 }
 </style>
 

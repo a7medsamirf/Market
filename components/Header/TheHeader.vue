@@ -68,7 +68,8 @@
        <v-list-item class="pa-3">
 
          <v-badge bottom color="error" overlap offset-x="25" offset-y="30" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
-          <v-icon class="mr-3">mdi-shopping-outline</v-icon>
+          <v-icon class="mr-3 fi fi-rr-shopping-cart"></v-icon>
+  
          </v-badge>
         <h5>Items</h5>
           <v-spacer></v-spacer>

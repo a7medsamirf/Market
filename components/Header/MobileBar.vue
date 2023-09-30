@@ -29,7 +29,7 @@
       {
             icon: 'fa-light fa-tv-retro',
             title: 'المتجر',
-            to: '/products'
+            to: '/product'
           },
                 {
             icon: 'fa-thin fa-camcorder',
