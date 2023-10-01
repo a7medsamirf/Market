@@ -1,14 +1,18 @@
+
 function CalculateTotal(state) {
   state.Total = 0;
-  for (let i = 0; i <= state.cart.length; i++) {
 
+  // Iterate through the cart items
+  for (let i = 0; i < state.cart.length; i++) {
     let item = state.cart[i];
-    if(item !== undefined && item != null){
-      state.Total += (item.product.price * item.quantity);
-    }
 
+    // Check if the item is defined and not null
+    if (item !== undefined && item != null) {
+      state.Total += item.product.salePrice * item.quantity;
+    }
   }
 }
+
 ///////////////
 
 export default {
@@ -31,7 +35,7 @@ export default {
       itemfound.quantity += 1;
     }
 
-    //Update local storage
+ //Update local storage
     localStorage.setItem("myCart", JSON.stringify(state.cart));
     CalculateTotal(state); ////////////
     const AddToCart = this.$i18n.t('product.AddToCart');
@@ -50,18 +54,15 @@ export default {
       rtl: false
     });
   },
-  
+
+// إنقاص عدد العناصر
   DecreaseItemCount(state, index) {
+    const CartUpdated = this.$i18n.t('product.CartUpdated');
     let item = state.cart[index];
+    item.quantity -= 1;
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
-    if (!item) return;
-    if (item.quantity == 1) {
-      state.cart.splice(index, 1);
-    } else {
-      item.quantity -= 1;
-    }
-    this.$toast.success("Cart Updated.", {
+    this.$toast.success(CartUpdated, {
       position: "bottom-center",
       timeout: 2635,
       closeOnClick: true,
@@ -77,6 +78,7 @@ export default {
     });
   },
 
+// إزالة عنصر السلة 
   RemoveCartItem(state, index) {
     state.cart.splice(index, 1);
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
@@ -97,6 +99,8 @@ export default {
     });
 
   },
+
+  // زيادة عدد العناصر
   IncreaseItemCount(state, index) {
     const CartUpdated = this.$i18n.t('product.CartUpdated');
     let item = state.cart[index];
@@ -117,7 +121,6 @@ export default {
       icon: true,
       rtl: false
     });
-
   },
   ClearCart(state) {
     state.cart = [];

@@ -41,7 +41,7 @@ export default {
     '~/assets/vendors/slick-carousel/slick.css',
     '~/assets/vendors/webfonts/uicons-regular-rounded.css',
     '~/assets/vendors/materialdesignicons.min.css',
-    '~/assets/vendors/animate.css'
+    '~/assets/vendors/animate.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

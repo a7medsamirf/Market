@@ -47,7 +47,9 @@
     "ItemRemoved" : "Item Removed",
     "AddToCart": "Add To Cart",
     "new":"New",
-    "Discount": "Discount"
+    "Discount": "Discount",
+    "Items" : "Items",
+    "YourCart": "Your Cart"
   }
 
  

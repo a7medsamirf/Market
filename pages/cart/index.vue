@@ -26,43 +26,42 @@
           <v-row>
       <v-col cols="12" md="9">
         <v-row>
-
       <v-col cols="12" md="12" v-if="$store.state.cart.cart.length > 0">
 
-<v-card v-for="(c, i) in $store.state.cart.cart" :key="c"
- class="mx-auto mb-3 rounded" outlined flat>
+      <v-card v-for="(c, i) in $store.state.cart.cart" :key="c"
+      class="mx-auto mb-3 rounded" outlined flat>
 
-  <v-list-item three-line :key="`cartItem${i}`">
-    <v-list-item-avatar tile size="70" outlined>
-      <v-img :title="c.product.name" height="100" width="100" contain
-        :src="require(`~/static/images/shop/${c.product.image}`)">
-      </v-img>
-    </v-list-item-avatar>
-    <v-list-item-content>
-      <v-list-item-title class="text-h5 Gray600--text"> {{ c.product.name }} </v-list-item-title>
-      <v-list-item-subtitle class="Gray400--text">{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
-    </v-list-item-content>
-
-
-  <div class="count rounded " outlined>
-    <button class="Gray600--text pa-2" @click="$store.commit('cart/IncreaseItemCount', i)"><i class="fa-regular fa-plus" ></i></button>
-
-    <span class="mx-2 Gray600--text">{{ c.quantity }}</span>
-
-    <button class="Gray600--text pa-2" @click="$store.commit('cart/DecreaseItemCount', i)"><i class="fa-regular fa-minus"></i></button>
-  </div>
+        <v-list-item three-line :key="`cartItem${i}`">
+          <v-list-item-avatar tile size="70" outlined>
+            <v-img :title="c.product.name" height="100" width="100" contain
+              :src="require(`~/static/images/shop/${c.product.image}`)">
+            </v-img>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title class="text-h5 Gray600--text"> {{ c.product.name }} </v-list-item-title>
+            <v-list-item-subtitle class="Gray400--text">{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
+          </v-list-item-content>
 
 
-  <span class="px-5 ms-16"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
+        <div class="count rounded " outlined>
+          <button class="Gray600--text pa-2" @click="$store.commit('cart/IncreaseItemCount', i)"><i class="fa-regular fa-plus" ></i></button>
 
-    <v-btn class="delete"  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
-      <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
-    </v-btn>
+          <span class="mx-2 Gray600--text">{{ c.quantity }}</span>
 
-  </v-list-item>
-</v-card>
+          <button class="Gray600--text pa-2" @click="$store.commit('cart/DecreaseItemCount', i)"><i class="fa-regular fa-minus"></i></button>
+        </div>
 
-</v-col>
+
+        <span class="px-5 ms-16"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
+
+          <v-btn class="delete"  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
+            <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>
+          </v-btn>
+
+        </v-list-item>
+      </v-card>
+
+    </v-col>
 
         </v-row>
 
@@ -105,6 +104,7 @@
         </div>
       </v-col>
     </v-row>
+
 
 
         </v-container>
@@ -151,5 +151,42 @@
   .v-btn.delete:before{
     opacity: 0.08;
   }
+.v-data-table > .v-data-table__wrapper > table {
+  border-spacing: 0 0.5rem;
+}
+
+.v-data-table {
+  .v-data-table__wrapper {
+    table {
+      td,
+      th {
+        padding-left: 16px !important;
+        min-width: 170px !important;
+        border: 1px solid #e8e8e8 !important;
+        border-bottom: none !important;
+        font: 14px/40px !important;
+        text-align: left !important;
+      }
+
+      td {
+        color: #666 !important;
+      }
+
+      th {
+        color: #231E41 !important;
+        border: none !important;
+        font-size: 16px !important;
+        font-weight: $font-medium;
+      }
+
+ 
+
+      tbody tr td {
+        border: none !important;
+        height: 65px;
+      }
+    }
+  }
+}
 
   </style>

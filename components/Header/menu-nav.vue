@@ -69,7 +69,7 @@ export default {
     return {
    items: [
         {title: 'كل المنتجات', to: '/product'},
-        {title: 'كل المنتجات', to: '/blog'},
+        {title: 'المقالات', to: '/blog'},
         {title: 'أختبار', to: '/test'},
         {title: 'text', to: '/text'},
         { title: 'Pages',

@@ -7,7 +7,14 @@
                 ></v-img> -->
 
 
-  <HomeCarousel :sale_items="sale_items"/>
+<v-row>
+  <v-col cols="12" md="6">
+    <HomeCarousel :sale_items="sale_items"/>
+  </v-col>
+</v-row>
+
+
+
   <features />
     <banner2 />
 

@@ -48,7 +48,9 @@
     "ItemRemoved" : "تمت إزالة العنصر",
     "AddToCart": "أضف للسلة",
     "new":"جديد",
-    "Discount":"خصم"
+    "Discount":"خصم",
+    "Items" : "المنتجات",
+    "YourCart": "سلة مشترياتك"
   }
 
 }

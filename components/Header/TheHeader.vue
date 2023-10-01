@@ -49,10 +49,22 @@
 
 
     <Settings />
-    <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
-       <v-btn @click.stop="rightDrawer = !rightDrawer"  icon><v-icon class="fa-regular fa-cart-shopping-fast fa-lg"></v-icon></v-btn>
+
+    <v-card class="elevation-0">
+      <v-list-item>
+        <div class="">
+          <v-badge bottom color="error" overlap offset-x="20" offset-y="45" v-if="$store.state.cart.cart.length > 0" :content="`${$store.state.cart.cart.length}`" >
+       <v-btn title="Your Cart" @click.stop="rightDrawer = !rightDrawer"  icon><v-icon class="fa-regular fa-cart-shopping-fast fa-lg"></v-icon></v-btn>
       </v-badge>
       <v-btn @click.stop="rightDrawer = !rightDrawer" v-else  icon><v-icon class="fa-regular fa-cart-shopping-fast fa-lg"></v-icon></v-btn>
+        </div>
+        <v-list-item-content class="total-price ms-3">
+          <v-list-item-title class="mb-0 text"><p class="mb-1"> {{ $t('product.YourCart') }}</p></v-list-item-title>
+          <v-list-item-subtitle class="font-weight-bold TxColor--text total-price">{{ $formatMoney ($store.state.cart.Total) }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
+
 
       </v-container>
     </v-app-bar>
@@ -71,14 +83,14 @@
           <v-icon class="mr-3 fi fi-rr-shopping-cart"></v-icon>
   
          </v-badge>
-        <h5>Items</h5>
+        <h5>{{ $t('product.Items') }}</h5>
           <v-spacer></v-spacer>
        <v-btn class="close-icon" icon @click="rightDrawer = !rightDrawer"><v-icon>mdi-close</v-icon></v-btn>
       </v-list-item>
           <v-divider class="white--text"></v-divider>
           <div class="text-center inner align-center justify-center py-16" v-if="$store.state.cart.cart.length == 0">
             <v-img class="d-block mx-auto" src="/emptycart.svg" width="500"></v-img>
-            <p>Your cart is empty</p>
+            <p>{{ $t('product.NoItems') }}</p>
           </div>
           <div class="py-3">
           <template v-for="(cartItem, i) in $store.state.cart.cart">
@@ -193,5 +205,17 @@ header.nav.v-toolbar.v-app-bar.v-app-bar--is-scrolled{
     box-shadow: 0 0 25px 0 rgba(45,69,95,.1)!important;
 }
 
+ .total-price .text p {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 14px;
+    color: #515d66;
+}
+.total-price {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #212529;
+}
 
 </style>
