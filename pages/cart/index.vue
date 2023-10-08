@@ -39,7 +39,7 @@
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="text-h5 Gray600--text"> {{ c.product.name }} </v-list-item-title>
-            <v-list-item-subtitle class="Gray400--text">{{ $formatMoney(c.product.price) }}</v-list-item-subtitle>
+            <v-list-item-subtitle class="Gray400--text">{{ $formatMoney(c.product.salePrice) }}</v-list-item-subtitle>
           </v-list-item-content>
 
 
@@ -52,7 +52,7 @@
         </div>
 
 
-        <span class="px-5 ms-16"> {{ $formatMoney(c.product.price * c.quantity) }}</span>
+        <span class="px-5 ms-16"> {{ $formatMoney(c.product.salePrice * c.quantity) }}</span>
 
           <v-btn class="delete"  @click="$store.commit('cart/RemoveCartItem', i)" right icon color="error">
             <v-icon color="error" size="18">mdi-trash-can-outline</v-icon>

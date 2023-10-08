@@ -115,7 +115,8 @@
 
                       <v-list-item-title class="text-p mb-1">{{ cartItem.product.name }}</v-list-item-title>
                       
-                      <v-list-item-subtitle>{{ $formatMoney(cartItem.product.price * cartItem.quantity) }}</v-list-item-subtitle>
+                      <v-list-item-subtitle>{{ $formatMoney(cartItem.product.salePrice * cartItem.quantity) }}</v-list-item-subtitle>
+                      
                       <v-list-item-subtitle>
                         <v-btn @click="$store.commit('cart/IncreaseItemCount', i)" icon color="primary">
                           <v-icon size="20">mdi-plus-circle</v-icon>

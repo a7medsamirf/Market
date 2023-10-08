@@ -54,12 +54,35 @@ export default {
       rtl: false
     });
   },
+  DecreaseItemCount(state, index) {
+    let item = state.cart[index];
+    if (!item) return;
+    if (item.quantity == 1) {
+      state.cart.splice(index, 1);
+    } else {
+      item.quantity -= 1;
+    }
+    this.$swal({
+      toast: true,
+      text: "Cart Updated.",
+      icon: "success",
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      position: "top-end",
+    });
+  },
 
 // إنقاص عدد العناصر
   DecreaseItemCount(state, index) {
     const CartUpdated = this.$i18n.t('product.CartUpdated');
     let item = state.cart[index];
-    item.quantity -= 1;
+    if (!item) return;
+    if (item.quantity == 1) {
+      state.cart.splice(index, 1);
+    } else {
+      item.quantity -= 1;
+    }
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
     CalculateTotal(state); ////////////
     this.$toast.success(CartUpdated, {
@@ -80,9 +103,10 @@ export default {
 
 // إزالة عنصر السلة 
   RemoveCartItem(state, index) {
+    const ItemRemoved = this.$i18n.t('product.ItemRemoved');
     state.cart.splice(index, 1);
     localStorage.setItem("myCart", JSON.stringify(state.cart)); /////////////////
-    const ItemRemoved = this.$i18n.t('product.ItemRemoved');
+    CalculateTotal(state);///////////////////
     this.$toast.error(ItemRemoved, {
       position: "bottom-center",
       timeout: 2635,
