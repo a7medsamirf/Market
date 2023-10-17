@@ -243,7 +243,7 @@ export default {
         ...product,
         path: product.path.replace(`/${defaultLocale}`, ''),
       })),
-      data_loaded : true,
+
 
     }
   },
