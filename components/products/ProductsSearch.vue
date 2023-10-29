@@ -1,18 +1,16 @@
 <template>
               <div class="sidebar-widget mb-5">
+             
+
               <v-text-field
                 v-model="search"
-                clearable
-                autocomplete="on"
-                placeholder="Search Products"
-                solo-inverted
                 flat
-                color="primary"
-                      ><v-icon
-                      slot="append"
-                      color="primary">
-                      mdi-magnify
-                      </v-icon>
+                small-chips
+                outlined
+                hide-details
+                autocomplete="on"
+                label="ابحث عما تريد"
+                color="primary"><v-icon slot="append" color="primary"> mdi-magnify</v-icon>
               </v-text-field>
 
             </div>

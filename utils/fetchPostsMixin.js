@@ -1,12 +1,32 @@
 export default {
-  async created() {
+  async asyncData({ $content, app, error}) {
+    const defaultLocale = app.i18n.locale;
+    const productsitems = await $content(`${defaultLocale}/product`)
+      .sortBy('createdAt', 'desc')
+      .limit(4)
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
+    return {
+      productsitems: productsitems.map(product => ({
+        ...product,
+        path: product.path.replace(`/${defaultLocale}`, ''),
+      })),
+      data_loaded : true,
+
+    }
+  },
+
+
+/*   async created() {
     try {
       this.sale_items = await this.$content("product")
         .where({ onSale: true })
         .fetch();
       
       this.productsitems = await this.$content("product")
-    /*    .where({ tags: { $containsAny: ['Mobile'] } }) */
+      .where({ tags: { $containsAny: ['Mobile'] } }) 
         .limit(8) // استدعاء اخر 5 مقالات
         .fetch();
 
@@ -22,7 +42,7 @@ export default {
       sale_items: null,
       productsitems: null,
     };
-  },
+  }, */
   // Featured products
 /*   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
@@ -44,6 +64,7 @@ export default {
    */
   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
+
     const blogs = await $content(`${defaultLocale}/blog`)
          /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
       /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
@@ -62,6 +83,8 @@ export default {
       data_loaded : true,
 
     }
+
+    
   },
 
 };

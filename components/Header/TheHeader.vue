@@ -34,14 +34,15 @@
           <v-img v-else max-height="50" contain max-width="170" :src="require('static/images/logo/white.png')" ></v-img>
         </NuxtLink>
         </div>
-    <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        label="ابحث عما تريد"
-        prepend-inner-icon="mdi-magnify"
-        class="hidden-sm-and-down px-10 ml-4"
-      />
+        <v-text-field
+                  flat
+                  small-chips
+                  outlined
+                  hide-details
+                  label="ابحث عما تريد"
+                  class="hidden-sm-and-down px-10 ml-4">
+                  <v-icon slot="append" color="primary"> mdi-magnify</v-icon>
+                </v-text-field>
 
 
         <v-spacer />

@@ -1,35 +1,212 @@
 <template>
-  <div>
-    <h1>Test</h1>
+  <div class="shop-wrap">
 
-    <Product :products="products" />
-<v-container>
-  <div class="product-gallery">
-        <div class="main-image">
-            <img src="https://i.dummyjson.com/data/products/1/1.jpg" alt="Product Image 1">
+
+    <div class="inner d-flex align-center justify-center py-16">
+    <v-container>
+      <v-row dense>
+
+
+        <v-col cols="12" md="3">
+
+            <div class="sidebar-wrap mx-3">
+            <div class="sidebar-widget mb-5">
+              <v-text-field
+                v-model="search"
+                flat
+                small-chips
+                outlined
+                hide-details
+                autocomplete="on"
+                label="ابحث عما تريد"
+                color="primary"><v-icon slot="append" color="primary"> mdi-magnify</v-icon>
+              </v-text-field>
+
+        
+            </div>
+            <div class="sidebar-widget mb-5">
+              <v-list v-if="$vuetify.breakpoint.mdAndUp" color="transparent" subheader>
+                <div class="widget-tittle ma-2">
+                  <h2>Categories</h2>
+                  <span></span>
+                </div>
+    
+
+              </v-list>
+
+              <v-list v-if="$vuetify.breakpoint.mdAndUp" color="transparent" subheader>
+                <div class="widget-tittle ma-2">
+                  <h2>Tags</h2>
+                  <span></span>
+                </div>
+
+
+
+              </v-list>
+
+            </div>
+
+            <div class="sidebar-widget mb-5">
+            <social />
+            </div>
+
+
+          </div>
+
+     
+
+        </v-col>
+
+
+        <v-col cols="12" md="9">
+          <v-row>
+
+       
+                <v-col cols="12" xl="3" lg="4" md="4" class="pa-2" v-for="(p, i) in products" :key="`product${p.id}-${i}`">
+                  <v-card
+                  class="mx-auto Product-Card pa-3 rounded"
+                  outlined
+                  >
+
+                    <nuxt-link :to="localePath(`/product/${p.id}`)">
+                    <v-img  :src="require(`~/static/images/shop/${p.image}`)" contain  height="200">
+                      <template slot="placeholder">
+                        <v-row
+                          class="fill-height"
+                          justify="center"
+                          align="center"
+                        >
+                          <v-progress-circular
+                            width="2"
+                            size="100"
+                            color="primary"
+                            indeterminate
+                          ></v-progress-circular>
+                        </v-row>
+                      </template>
+           
+
+                        <v-chip v-if="p.new"
+                        class="ma-1"
+                        color="red"
+                        label
+                        text-color="white"
+                           
+                              >
+                              {{ $t('product.new') }}
+                              </v-chip>
+                        
+
+                      <v-chip v-if="!isNaN(p.discount)"
+                        class="ma-1"
+                        color="primary"
+                        label
+                        text-color="white">  {{ p.discount }}  % {{ $t('product.Discount') }}</v-chip>
+                  
+
+                    </v-img>
+                    </nuxt-link>
+
+                    <div class="content">
+    <v-card-title class="font-weight-bold Gray600--text pb-1">  {{ p.name }} </v-card-title>
+  
+      <v-card-text class="product-description text-Gray600 pb-0">
+        <p class="pb-0 mb-1 font-weight-regular"> {{ p.description }}</p>
+      </v-card-text>
+      <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="p.ratings"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="16"
+        ></v-rating>
+
+        <div class="grey--text ms-4">
+          {{p.ratings}}
         </div>
-        <div class="thumbnails">
-            <img src="https://i.dummyjson.com/data/products/1/1.jpg" alt="Thumbnail 1">
-            <img src="https://i.dummyjson.com/data/products/1/3.jpg" alt="Thumbnail 2">
-            <img src="https://i.dummyjson.com/data/products/2/1.jpg" alt="Thumbnail 3">
-            <!-- Add more thumbnails as needed -->
+      </v-row>
+    </v-card-text>
+
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+      <h4 class="ext-subtitle-1 error--text price"><span class="old-price">{{ $formatMoney(p.price) }}</span> {{ $formatMoney(p.salePrice) }}   
+      </h4>
+      <v-spacer> </v-spacer>
+        <div class="grey--text ms-4">
+        
+      <p v-if="p.inStock" class="in-stock mb-0">{{ $t('product.InStock') }}</p>
+       <p v-else class="out-of-stock mb-0">{{ $t('product.OutOfStock') }}</p>
+
         </div>
-    </div>
-
-</v-container>
-
+      </v-row>
+    </v-card-text>
 
 
+   
+  </div>
 
+
+        
+                    <v-card-actions>
+                        <v-btn
+                            v-if="p.inStock"
+                          class="addcart font-weight-bold rounded pa-5 "
+                          :loading="loading&&p.id == product.id"
+                          :disabled="loading&&p.id==product.id"
+                          @click="AddToCart(p)"
+                          outlined
+                          width="70%"
+                        >
+                        <v-icon right  class="fa-regular fa-bag-shopping fa-lg"></v-icon>
+                        {{ $t('product.AddToCart') }}
+                        </v-btn>
+                        <v-btn class="OutOfStock font-weight-bold rounded pa-5" v-else color="error" 
+                        elevation="0"
+                          width="70%"
+                        >
+                        {{ $t('product.OutOfStock') }}
+
+                        </v-btn>
+
+
+
+                        <v-spacer> </v-spacer>
+                        <v-btn
+                          outlined
+                          class="rounded pa-5"
+                        >
+                        <i class="fa-regular fa-heart fa-lg"></i>
+                        </v-btn>
+                        </v-card-actions>
+
+
+
+
+                  </v-card>
+                </v-col>
+     
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
   </div>
 </template>
 
 
 <script>
-import Product from '~/components/Cards/Product.vue';
+
 export default {
-  name: 'IndexPage',
-  components: { Product },
+    name: "products",
   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
     const products = await $content(`${defaultLocale}/product`)
@@ -47,64 +224,48 @@ export default {
 
     }
   },
+  data() {
+    return {
+      products: null,
+      loader: null,
+      loading: false,
+    };
+  },
+  watch: {
+  loader () {
+    const l = this.loader
+    this[l] = !this[l]
+    setTimeout(() => (this[l] = false), 3000)
+    this.loader = null
+  },
+},
 
-}
+  methods : {
+    AddToCart(prod){
+      this.product = prod;
+      setTimeout(()=>{
+        this.$store.commit('cart/AddToCart', prod);
+        this.loading = false;
+      } , 1000);
+      this.loading = true;
+    },
+  }
+};
 </script>
 
-<style scoped lang="scss">
-/* styles.css */
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+<style>
+.Wishlist:hover{
+  background-color: #f55157;
+  transition: all 0.5s ease-in-out;
+  color: #fff;
 }
 
-.product-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.main-image img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.thumbnails {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.thumbnail {
-    max-width: 100px; /* Adjust the thumbnail width as needed */
-    height: auto;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-}
-
-.thumbnail:hover {
-    transform: scale(1.1);
-}
-
-/* CSS animation for changing the main image */
-.thumbnail.active {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.sidebar-wrap
+{
+  position: sticky !important;
+  top: 100px;
 }
 </style>
+
+
+
