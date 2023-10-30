@@ -134,19 +134,11 @@ import Support from '~/components/products/Support.vue';
 export default {
   components: { Description, Support },
   async created() {
-    const defaultLocale = app.i18n.locale;
-     let products = await this.$content(`${defaultLocale}/product`)
+    let d = await this.$content("product")
       .where({ id: parseInt(this.$route.params.id) })
       .limit(1)
       .fetch();
-    this.product = products[0];
-    return {
-      products: products.map(product => ({
-        ...product,
-        path: product.path.replace(`/${defaultLocale}`, ''),
-      })),
-
-    }
+    this.product = d[0];
   },
   data() {
     return {
@@ -164,9 +156,7 @@ export default {
   loader () {
     const l = this.loader
     this[l] = !this[l]
-
     setTimeout(() => (this[l] = false), 1500)
-
     this.loader = null
   },
 },
