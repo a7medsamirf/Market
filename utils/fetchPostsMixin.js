@@ -1,91 +1,41 @@
 export default {
-  async asyncData({ $content, app, error}) {
+  async asyncData({ $content, app, error }) {
     const defaultLocale = app.i18n.locale;
+  
     const productsitems = await $content(`${defaultLocale}/product`)
       .sortBy('createdAt', 'desc')
       .limit(4)
       .fetch()
       .catch(() => {
-        error({ statusCode: 404, message: 'Page not found' })
-      })
-    return {
-      productsitems: productsitems.map(product => ({
-        ...product,
-        path: product.path.replace(`/${defaultLocale}`, ''),
-      })),
-      data_loaded : true,
+         error({ statusCode: 404, message: 'Page not found' })
+      });
 
-    }
-  },
-
-
-/*   async created() {
-    try {
-      this.sale_items = await this.$content("product")
+      // sale items
+      const  sale_items = await $content(`${defaultLocale}/product`)
         .where({ onSale: true })
-        .fetch();
-      
-      this.productsitems = await this.$content("product")
-      .where({ tags: { $containsAny: ['Mobile'] } }) 
-        .limit(8) // استدعاء اخر 5 مقالات
-        .fetch();
-
-      this.products = await this.$content("product").fetch();
-    } 
-    catch (error) {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-  data() {
-    return {
-      products: null,
-      sale_items: null,
-      productsitems: null,
-    };
-  }, */
-  // Featured products
-/*   async asyncData({ $content, app, error}) {
-    const defaultLocale = app.i18n.locale;
-    const Featured = await $content(`${defaultLocale}/product`)
-      .sortBy('createdAt', 'desc')
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: 'Page not found' })
-      })
-    return {
-      Featured: Featured.map(product => ({
-        ...product,
-        path: product.path.replace(`/${defaultLocale}`, ''),
-      })),
-      data_loaded : true,
-  
-    }
-  },
-   */
-  async asyncData({ $content, app, error}) {
-    const defaultLocale = app.i18n.locale;
-
+        .fetch()
+        .catch(() => {
+          error({ statusCode: 404, message: 'Page not found' })
+       });
+       
+  // blogs
     const blogs = await $content(`${defaultLocale}/blog`)
-         /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
-      /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
       .sortBy('createdAt', 'desc')
-      .limit(3) // استدعاء اخر 5 مقالات
+      /*.only(['title', 'description', 'img', 'tags', 'slug', 'author'])*/ // لعرض بعض البيانات الخاصه بالمقالة
+      /* .where({ tags: { $containsAny: ['burger'] } }) */ // استدعاء وعرض مجموعة من المقالات باستخدام التصنيف
+      .limit(3)  // استدعاء اخر 5 مقالات
       .fetch()
-
       .catch(() => {
-        error({ statusCode: 404, message: 'Page not found' })
-      })
+         error({ statusCode: 404, message: 'Page not found' })
+      });
+  
     return {
-      blogs: blogs.map(blog => ({
-        ...blog,
-        path: blog.path.replace(`/${defaultLocale}`, ''),
-      })),
-      data_loaded : true,
-
-    }
-
-    
-  },
+      data_loaded: true,
+      sale_items: sale_items.map(product => ({...product, path: product.path.replace(`/${defaultLocale}`, ''),})),
+      productsitems: productsitems.map(product => ({...product, path: product.path.replace(`/${defaultLocale}`, ''),})),
+      blogs: blogs.map(blog => ({...blog, path: blog.path.replace(`/${defaultLocale}`, ''),})),
+    };
+  }
 
 };
 
