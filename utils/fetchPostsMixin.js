@@ -2,7 +2,7 @@ export default {
   async asyncData({ $content, app, error }) {
     const defaultLocale = app.i18n.locale;
   
-    const productsitems = await $content(`${defaultLocale}/product`)
+    const productsitems = await $content(`${defaultLocale}/products`)
       .sortBy('createdAt', 'desc')
       .limit(4)
       .fetch()
@@ -11,7 +11,7 @@ export default {
       });
 
       // sale items
-      const  sale_items = await $content(`${defaultLocale}/product`)
+      const  sale_items = await $content(`${defaultLocale}/products`)
         .where({ onSale: true })
         .fetch()
         .catch(() => {

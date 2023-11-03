@@ -22,7 +22,7 @@
             <div class="product-img">
               <v-carousel>
             <v-carousel-item
-              :src="require('~/static/images/blog/1.png')"
+             :src="require(`~/static/images/shop/${product.image}`)"
             >
             </v-carousel-item>
             <v-carousel-item
@@ -134,7 +134,7 @@ import Support from '~/components/products/Support.vue';
 export default {
   components: { Description, Support },
   async created() {
-    let d = await this.$content("product")
+    let d = await this.$content("products")
       .where({ id: parseInt(this.$route.params.id) })
       .limit(1)
       .fetch();

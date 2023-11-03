@@ -228,7 +228,7 @@ export default {
   
   async asyncData({ $content, app, error}) {
     const defaultLocale = app.i18n.locale;
-    const products = await $content(`${defaultLocale}/product`)
+    const products = await $content(`${defaultLocale}/products`)
       .sortBy('createdAt', 'desc')
       .fetch()
       .catch(() => {

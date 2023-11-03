@@ -35,6 +35,7 @@
         </NuxtLink>
         </div>
         <v-text-field
+                  rounded
                   flat
                   small-chips
                   outlined
