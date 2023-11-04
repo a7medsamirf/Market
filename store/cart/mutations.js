@@ -3,12 +3,12 @@ function CalculateTotal(state) {
   state.Total = 0;
 
   // Iterate through the cart items
-  for (let i = 0; i < state.cart.length; i++) {
+  for (let i = 0; i <= state.cart.length; i++) {
     let item = state.cart[i];
 
     // Check if the item is defined and not null
-    if (item !== undefined && item != null) {
-      state.Total += item.product.salePrice * item.quantity;
+    if(item !== undefined && item != null){
+      state.Total += (item.product.salePrice * item.quantity);
     }
   }
 }
@@ -27,7 +27,7 @@ export default {
 
   AddToCart(state, product) {
     //Check if item is in cart
-    let itemfound = state.cart.find((product) => product.product.id === product.id);
+    let itemfound = state.cart.find((products) => products.product.id === product.id);
     if (!itemfound) {
       state.cart.push({ product, quantity: 1 });
     }

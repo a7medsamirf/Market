@@ -134,7 +134,8 @@ import Support from '~/components/products/Support.vue';
 export default {
   components: { Description, Support },
   async created() {
-    let d = await this.$content("products")
+    const locale = this.$i18n.locale;
+    let d = await this.$content(`${locale}/products`)
       .where({ id: parseInt(this.$route.params.id) })
       .limit(1)
       .fetch();
