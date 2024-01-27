@@ -128,11 +128,8 @@
       <v-card-text class="product-description text-Gray600 pb-0">
         <p class="pb-0 mb-1 font-weight-regular"> {{ p.description }}</p>
       </v-card-text>
-      <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
+      <v-card-text class="p-2">
+        <div class="d-flex">
         <v-rating
           :value="p.ratings"
           color="amber"
@@ -145,24 +142,20 @@
         <div class="grey--text ms-4">
           {{p.ratings}}
         </div>
-      </v-row>
+      </div>
     </v-card-text>
 
-    <v-card-text>
-      <v-row
-        align="center"
-        class="mx-0"
-      >
-      <h4 class="ext-subtitle-1 error--text price"><span class="old-price">{{ $formatMoney(p.price) }}</span> {{ $formatMoney(p.salePrice) }}   
-      </h4>
-      <v-spacer> </v-spacer>
-        <div class="grey--text ms-4">
+    <v-card-text class="p-2">
+    <div class="d-flex justify-content-between ">
+      <h5 class="text-subtitle-1 error--text price"><span class="old-price">{{ $formatMoney(p.price) }}</span> {{ $formatMoney(p.salePrice) }}   
+      </h5>
+      <div class="grey--text ">
         
       <p v-if="p.inStock" class="in-stock mb-0">{{ $t('product.InStock') }}</p>
        <p v-else class="out-of-stock mb-0">{{ $t('product.OutOfStock') }}</p>
 
         </div>
-      </v-row>
+      </div>
     </v-card-text>
 
 

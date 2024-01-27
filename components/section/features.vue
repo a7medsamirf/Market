@@ -2,9 +2,10 @@
   <div class="pt-20">
     <v-container >
       <v-row>
-      <v-col cols="12" lg="3" md="6" sm="6" v-for="(support, index) in supports" :key="index">
+      <v-col cols="12" lg="4" md="6" sm="6" v-for="(support, index) in supports" :key="index">
     <v-card
       class="mx-auto py-3 rounded"
+      outlined 
       flat
     >
       <v-list-item three-line>
@@ -40,7 +41,6 @@
        supports: [
         {icon: 'mdi-moped', title: 'منتجات مضمونه', description: 'مدفوعات آمنة أقساط تصل إلى 12 شهرًا', },
         {icon: 'mdi-currency-usd', title: 'شحن مجاني' , description: 'مدفوعات آمنة أقساط تصل إلى 12 شهرًا',},
-        {icon: 'mdi-face-agent', title: 'مدفوعات آمنة' , description: 'مدفوعات آمنة أقساط تصل إلى 12 شهرًا',},
         {icon: 'mdi-face-agent', title: 'مدفوعات آمنة' , description: 'مدفوعات آمنة أقساط تصل إلى 12 شهرًا',},
 
       ]

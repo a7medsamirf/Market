@@ -37,6 +37,7 @@
   },
   "product":{
     "NoItems": "No Items Just Yet",
+    "NoItem": "Your search did not match any products",
     "OutOfStock": "Out Of Stock",
     "InStock": "In Stock",
     "ProcessingOrder": " Processing your order",

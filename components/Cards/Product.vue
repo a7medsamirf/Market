@@ -81,7 +81,7 @@
 
 
 
-  text: ItemRemoved,
+
 
       <v-card-actions>
 

@@ -24,7 +24,9 @@
 
 
    <!---------- Start App Bar ---------->
-   <v-divider class="white--text"></v-divider>
+
+<!--    <v-divider class="white--text"></v-divider>
+ -->
     <v-app-bar  class="nav"  height="85px"  elevation="1" color="white" underline>
       <v-container  class="fill-height">
         <v-app-bar-nav-icon class="hidden-md-and-up hidden-md-and-down"  @click.stop="drawer = !drawer" />
@@ -35,14 +37,14 @@
         </NuxtLink>
         </div>
         <v-text-field
-                  rounded
+                  
                   flat
                   small-chips
                   outlined
                   hide-details
                   label="ابحث عما تريد"
                   class="hidden-sm-and-down px-10 ml-4">
-                  <v-icon slot="append" color="primary"> mdi-magnify</v-icon>
+                  <v-icon slot="append" > mdi-magnify</v-icon>
                 </v-text-field>
 
 

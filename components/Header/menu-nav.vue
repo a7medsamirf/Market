@@ -68,6 +68,7 @@ export default {
   data () {
     return {
    items: [
+        {title: 'الرئيسية', to: '/'},
         {title: 'كل المنتجات', to: '/product'},
         {title: 'المقالات', to: '/blog'},
         {title: 'أختبار', to: '/test'},

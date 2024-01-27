@@ -1,69 +1,31 @@
-<template lang="">
-  <div>
-    <v-card class="rounded post "
-flat
->
-<NuxtLink :to="localePath(blog.path)">
-<div class="postImage">
-<v-img
-class="rounded flat lazy"
-v-if="blog.img"
-:src="require(`~/static/images/blog/${blog.img}`)"
-:alt="blog.alt"
-height="450"
->
-<template slot="placeholder">
-  <v-row
-    class="fill-height"
-    justify="center"
-    align="center"
-  >
-    <v-progress-circular
-      width="2"
-      size="100"
-      color="default"
-      indeterminate
-    ></v-progress-circular>
-  </v-row>
+<template >
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" v-for="(p, i) in productsitems" :key="`product${p.id}-${i}`">
+
+          <div class="card Product-Card">
+            <nuxt-link :to="localePath(`/product/${p.id}`)">
+        <div>  
+           <img :src="require(`~/static/images/shop/${p.image}`)" class="card-img-top" alt="...">
+           
+        <span v-if="p.new"> {{ $t('product.new') }}</span>
+        <span v-if="!isNaN(p.discount)"> {{ p.discount }}  % {{ $t('product.Discount') }}</span>
+
+        </div>
+            
+          </nuxt-link>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9 mins</small>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+    
+          </div>
+
+        </div>
+      </div>
+
+
 </template>
-
-</v-img>
-
-</div>
-
-<div class="postDetails">
-<div class="postDetails">
-<span class="postReview" data-cat="mid">2.6</span>
-
-<span class="postCat" data-cat="News">
-<a href="/search/label/News" tabindex="-1">News</a>
-</span>
-
-<h3 class="postTitle">
-<a href="" title="Essential Tech Tips for Your Business" tabindex="-1">{{ blog.title }}</a>
-</h3>
-
-<div class="postMeta">
-<span class="postAuthor">seb issam</span>
-<span class="postDate">
-  <time class="published" datetime="2022-05-02T03:27:00.000-07:00">7 months ago</time>
-</span>
-</div>
-</div>
-
-</div>
-
-</NuxtLink>
-
-</v-card>
-
-  </div>
-</template>
-<script>
-export default {
-
-}
-</script>
-<style lang="">
-
-</style>

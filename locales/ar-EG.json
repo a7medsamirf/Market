@@ -38,6 +38,7 @@
   },
   "product":{
     "NoItems": "لا توجد منتجات حتى الآن",
+    "NoItem": "بحثك لم يطابق أي منتجات",
     "OutOfStock": "إنتهى من المخزن",
     "InStock": "فى المخزن",
     "ProcessingOrder": "معالجة طلبك",
