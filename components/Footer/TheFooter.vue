@@ -2,44 +2,52 @@
   <div>
 
     <div id="footer" class="pt-20">
-      <div class=" background white--text">
-        <v-container >
-          <v-row>
-            <v-col cols="12" lg="5" md="6" sm="12">
-              <v-card
-      class="mx-auto py-3 rounded email-card white--text" 
-      flat
-    >
-      <v-list-item three-line>
-    <v-list-item-avatar
-          tile
-          size="50"
-          class="rounded-circle"
-        >
-        <v-icon class="fa-regular fa-envelope fa-lg primary--text"></v-icon>
+      <div class="background white--text">
 
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <div class="font-weight-bold use-text-title5 white--text">الاشتراك فى النشرة البريدية</div>
+      <div class="container">
+        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+        <div class="col">
+        <div class="d-flex align-items-center email-card">
+              <div class="flex-shrink-0">
+                <div class="Icon">
+              <div class="IconsEmail">
+                <div class="Vector" >
+                  <i class="fa-regular fa-envelope fa-xl primary--text"></i>
+                </div>
+              </div>
+            </div>
+              </div>
+             
+
+              <div class="flex-grow-1 ms-3">
+                <div class="font-weight-bold use-text-title5 white--text">الاشتراك فى النشرة البريدية</div>
           <div class="white--text mt-2">انضم الآن واحصل على خصم 10٪ على مشترياتك التالية!</div>
-        </v-list-item-content>
+              </div>
+            </div>
 
-      </v-list-item>
-    </v-card>
-            </v-col>
-            <v-col cols="12" lg="5" md="6" sm="12">
-              <v-text-field
-              flat
-              solo-inverted
-              hide-details
-              label="ابحث عما تريد"
-              prepend-inner-icon="mdi-magnify"
-              class="hidden-sm-and-down px-10 ml-4"
-            />
+</div>
+        <div class="col">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+          </form>
+          <div class="text-end mt-5">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+          </div>
+        </div>
 
-            </v-col>
+        
 
-          </v-row>
+</div>
+        <div class="col">3</div>
+        </div>
+
+
+        </div>
+        </div>
+          <div class=" background white--text">  
+      <div class="container">
           <v-row>
             <v-col cols="12" lg="3" md="6" sm="12">
               <p class="white--text  mt-3">متجر سلة من افضل المتاجر التى تقوم ببيع المنتجات الرقمية بأفضل الاسعار وماركات عالمية تسوق الان واطلع على المزيد من التصاميم واستمتع بأفضل العروض والخصومات</p>
@@ -105,7 +113,9 @@
 
             </v-col>
           </v-row>
-        </v-container>
+        </div>
+      </div>
+
         <v-row>
         <v-col
               class="text-center pa-0"
@@ -119,7 +129,7 @@
               </v-col>
 
             </v-row>
-      </div>
+
 
     </div>
   </div>
@@ -156,33 +166,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#footer
-  .Quick-Links
-  {
-    background: transparent;
-  }
-  .no-active::before {
-    opacity: 0 !important;
+#footer {
+.email-card {
+  .Icon{
+    width: 60px;
+    height: 60px;
+    line-height: 0;
+    background: rgba(214, 248, 240, 0.05);
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
   }
 
-i.fa-duotone.fa-arrow-up-right,
-i.fa-duotone.fa-arrow-up-left {
-    width: 50px;
-    height: 50px;
-    background: var(--maincolor);
-    border-radius: 50%;
-    text-align: center;
-    color: #fff;
-    line-height: 50px;
-    font-size: 25px;
 }
-.email-card{
-  background-color: transparent;
-  .v-avatar{
-    background-color: rgba(214, 248, 240, 0.05);
-  }
 }
-
-
 
 </style>
+
+
